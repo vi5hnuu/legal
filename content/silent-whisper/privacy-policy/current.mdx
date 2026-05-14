@@ -1,181 +1,233 @@
 ---
 title: Privacy Policy
-effectiveDate: 2025-03-03
-lastUpdated: 2025-03-03
+effectiveDate: 2026-05-14
+lastUpdated: 2026-05-14
 brand: Silent Whisper
 brandSlug: silent-whisper
-description: Privacy Policy for the Silent Whisper application.
+description: Privacy Policy for the Silent Whisper application — how we collect, use, and protect your data.
 versions:
   - date: "2025-03-03"
     label: Initial version
+  - date: "2026-05-14"
+    label: Added E2E encryption disclosure, voice message storage, DPDP Act compliance, anti-abuse policy
 ---
 
-# Privacy Policy for silent whisper
+# Privacy Policy for Silent Whisper
 
-_Last updated: March 03, 2025_
+_Last updated: May 14, 2026 · Effective: May 14, 2026_
 
-This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
-
-We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.
-
----
-
-## Interpretation and Definitions
-
-### Interpretation
-
-The words of which the initial letter is capitalized have meanings defined under the following conditions.
-
-### Definitions
-
-- **Account**: A unique account created for You to access our Service.
-- **Affiliate**: Entity that controls, is controlled by, or under common control.
-- **Application**: silent whisper.
-- **Company**: silent whisper ("We", "Us", "Our").
-- **Country**: India.
-- **Device**: Any device such as mobile, computer, tablet.
-- **Personal Data**: Information that identifies an individual.
-- **Service**: The Application.
-- **Service Provider**: Third parties processing data.
-- **Third-party Social Media Service**: Platforms used for login.
-- **Usage Data**: Automatically collected data.
-- **You**: The user.
+This Privacy Policy describes how Silent Whisper ("We", "Us", "Our") collects, uses, and protects your information when you use our application and services. By using Silent Whisper, you agree to the practices described in this policy.
 
 ---
 
-## Collecting and Using Your Personal Data
+## 1. Interpretation and Definitions
 
-### Types of Data Collected
+- **Account** — A registered account created to access Silent Whisper.
+- **Application** — The Silent Whisper mobile application and web interface.
+- **Company** — Silent Whisper (operated by an individual developer based in India).
+- **Device** — Any device used to access the Service (phone, computer, tablet).
+- **E2E Encryption** — End-to-end encryption; message content is encrypted on your device before transmission and can only be decrypted by the intended recipient.
+- **Guest Account** — A temporary account that does not require registration; expires automatically after 7 days.
+- **Personal Data** — Any information that identifies or could identify you.
+- **Pro** — The paid tier of Silent Whisper unlocked via a one-time Google Play in-app purchase.
+- **Service** — The Application and related backend services.
+- **Sharing Link** — A unique URL you generate to receive anonymous messages.
+- **You** — The individual using the Service.
 
-#### Personal Data
+---
 
-We may collect:
+## 2. Our Core Privacy Commitment
 
+Silent Whisper is built on the principle that **messages are private by design**:
+
+- **We cannot read your messages.** Message content is encrypted on your device using AES-128-GCM before it is sent to our servers. The encrypted ciphertext is transmitted and stored without any server-side ability to decrypt it.
+- **Your private key never leaves your device.** RSA private keys used to decrypt messages are generated and stored exclusively on your device. We only store your public key.
+- **We do not sell your data.** We do not sell, rent, or trade your personal information to third parties for marketing purposes.
+- **No advertising inside messages.** We never place advertisements inside the message inbox or message content.
+
+---
+
+## 3. Data We Collect
+
+### 3.1 Account Data
+When you register, we collect:
 - Email address
-- First and last name
-- Usage Data
+- First and last name (optional)
+- Username (chosen by you)
+- Password (stored as a bcrypt hash — never in plaintext)
 
-#### Usage Data
+When you sign in with Google, we additionally receive your Google profile name and email address via OAuth.
 
-Includes:
+### 3.2 Encryption Keys
+- Your **RSA public key** is stored on our servers to allow senders to encrypt messages for you.
+- Your **RSA private key** is generated and stored only on your device. It is never transmitted to or stored on our servers.
 
-- IP address
-- Browser type/version
-- Pages visited
-- Time and date of visit
-- Device identifiers
+### 3.3 Messages
+- Incoming **text messages** are stored as AES-128-GCM encrypted ciphertext. We cannot read the content.
+- Incoming **voice messages** are stored as AES-128-GCM encrypted binary blobs on AWS S3 (ap-south-1 / Mumbai region). The audio content is encrypted before upload and we cannot access it.
+- Messages are hard-deleted from our servers according to the recipient's configured retention period (TTL). Pro users can set unlimited retention; free accounts have a default maximum.
+- Voice messages stored on S3 are deleted when the corresponding message is deleted from the application.
 
-#### Third-Party Social Media
+### 3.4 Sharing Link Metadata
+When you create a Sharing Link, we record:
+- **IP address** of the device at the time of creation — retained for security, spam prevention, and abuse investigation only.
+- **User-Agent string** — the browser or app version used at creation time.
+- Link configuration settings you choose (password protection, expiry, pause status, etc.).
 
-You may log in via:
+We do **not** log the IP addresses of people who send you messages via your link.
 
-- Google
+### 3.5 Device Tokens (Push Notifications)
+If you enable push notifications, we store your **FCM (Firebase Cloud Messaging) device token** to deliver read-receipt notifications. This token is not used for advertising and is deleted when you revoke notification permissions or delete your account.
 
-We may collect associated profile data when you do so.
+### 3.6 Purchase Data
+If you purchase the Pro tier via Google Play, we store:
+- Your Google Play **purchase token** and **Order ID**, used solely to verify your Pro status with the Google Play Developer API.
+- The timestamp of your upgrade.
+- These are never shared with third parties beyond Google Play verification.
 
----
+### 3.7 Usage and Analytics Data
+We use Firebase Analytics (Google LLC) to collect anonymised usage data such as:
+- Screens visited and features used
+- App version and device type
+- Session duration
 
-## Use of Your Personal Data
+We use Google AdMob to display advertisements to free-tier users. AdMob may collect device identifiers and usage data per its own privacy policy. No ads are shown inside the message inbox.
 
-We use your data to:
-
-- Provide and maintain the Service
-- Manage your account
-- Perform contracts
-- Contact you (email, SMS, notifications)
-- Send offers (unless opted out)
-- Handle requests
-- Business transfers
-- Improve services and analytics
-
----
-
-## Sharing Your Data
-
-We may share data:
-
-- With Service Providers
-- During business transfers
-- With affiliates
-- With business partners
-- Publicly with other users
-- With your consent
+### 3.8 Guest Accounts
+Guest accounts (no email required) store a temporary user record. **All data associated with a guest account is permanently deleted 7 days after creation.**
 
 ---
 
-## Retention of Data
+## 4. How We Use Your Data
 
-We retain data:
+| Purpose | Legal Basis |
+|---|---|
+| Delivering and storing encrypted messages | Contract performance |
+| Verifying Pro purchase with Google Play | Contract performance |
+| Sending push notification read receipts | Legitimate interest / consent |
+| Abuse prevention and security (IP logs) | Legitimate interest |
+| Improving the app (Firebase Analytics) | Legitimate interest |
+| Serving ads to free users (AdMob) | Legitimate interest / consent |
+| Complying with legal obligations | Legal obligation |
 
-- As long as necessary
-- To comply with legal obligations
-- For internal analysis (shorter duration usually)
-
----
-
-## Transfer of Data
-
-Your data may be transferred and stored outside your jurisdiction. By using the Service, you consent to this.
-
----
-
-## Delete Your Data
-
-You can:
-
-- Delete data via account settings
-- Request deletion by contacting us
-
-We may retain some data if legally required.
+We do **not** use your data for:
+- Building advertising profiles
+- Training AI/ML models on message content
+- Selling to data brokers
 
 ---
 
-## Disclosure of Data
+## 5. Anti-Abuse Policy
 
-### Business Transactions
-Data may transfer during mergers/acquisitions.
+Silent Whisper is designed for genuine human communication. The following are **prohibited** and may result in immediate account termination:
 
-### Legal Requirements
-We may disclose data to:
+- Sending AI-generated, bot-generated, or bulk automated messages
+- Harassment, threats, or targeted abuse
+- Spam or unsolicited commercial messages
+- Any content that violates applicable law
 
-- Comply with law
-- Protect rights
-- Prevent wrongdoing
-- Ensure safety
+We may use metadata (e.g., message frequency, IP patterns) to detect and stop abuse without accessing message content.
 
 ---
 
-## Security
+## 6. Sharing Your Data
 
-We strive to protect your data but cannot guarantee 100% security.
+We share data only in the following circumstances:
 
----
+| Recipient | What is shared | Why |
+|---|---|---|
+| **Google LLC** | FCM tokens, Analytics events, Play purchase tokens, AdMob identifiers | Push delivery, analytics, purchase verification, advertising |
+| **Amazon Web Services (AWS)** | Encrypted voice message blobs | S3 storage in ap-south-1 |
+| **Law enforcement / courts** | Account metadata (not message content — we cannot access it) | Legal obligation |
+| **Acquirer (if Company is sold)** | Account data | Business transfer — users will be notified |
 
-## Children's Privacy
-
-We do not collect data from children under 13. If discovered, we delete it.
-
----
-
-## Links to Other Websites
-
-We are not responsible for third-party sites.
+We never share message content because we are technically incapable of reading it.
 
 ---
 
-## Changes to This Policy
+## 7. Data Retention
 
-We may update this policy and notify users via:
+| Data type | Retention |
+|---|---|
+| Text messages | Until deleted by recipient, or per TTL setting |
+| Voice messages (S3) | Deleted with the message record |
+| Account data | Until account deletion |
+| Guest account data | 7 days from creation |
+| Sharing link IP / User-Agent | Up to 12 months for abuse prevention |
+| Purchase tokens | As long as the account exists |
+| Firebase Analytics events | Per Google's Analytics data retention settings (default 14 months) |
+| FCM device tokens | Until permission revoked or account deleted |
 
-- Email
-- App notification
+---
+
+## 8. Your Rights
+
+### 8.1 General Rights
+You have the right to:
+- **Access** your personal data
+- **Correct** inaccurate data
+- **Delete** your account and associated data (via Settings → Delete Account or by contacting us)
+- **Withdraw consent** for notifications at any time via device settings
+
+### 8.2 India — Digital Personal Data Protection Act, 2023 (DPDP)
+In accordance with India's DPDP Act:
+- We process your data only for the purposes described above.
+- You have the right to request correction or erasure of your personal data.
+- You have the right to nominate a representative to exercise your rights.
+- To exercise any of these rights, contact us at the email below.
+
+### 8.3 European Users (GDPR)
+If you access the Service from within the European Economic Area, you additionally have rights to data portability and to lodge a complaint with a supervisory authority.
 
 ---
 
-## Contact Us
+## 9. Data Transfer
 
-If you have questions:
-
-- Email: kumarvishnu1619@gmail.com
+Your data is processed and stored on servers in India and the United States (AWS ap-south-1 / us-east-1 via Firebase). By using the Service, you consent to this transfer.
 
 ---
+
+## 10. Security
+
+We implement the following security measures:
+- AES-128-GCM encryption for all message content and voice audio
+- RSA-2048 public-key cryptography for key exchange
+- BCrypt hashing for passwords
+- HMAC-SHA256 token verification for S3 upload authorisation
+- HTTPS/TLS for all API communication
+- HTTP-only session cookies
+
+No system is 100% secure. If you discover a security vulnerability, please contact us immediately.
+
+---
+
+## 11. Children's Privacy
+
+Silent Whisper is not directed at children under 13 years of age. We do not knowingly collect data from children under 13. If we become aware that a child under 13 has registered, we will delete their account and associated data immediately.
+
+---
+
+## 12. Third-Party Links
+
+Messages may contain links to external websites. We are not responsible for the privacy practices of those sites.
+
+---
+
+## 13. Changes to This Policy
+
+We may update this Privacy Policy. When we do:
+- The "Last updated" date at the top will change.
+- For significant changes, we will notify you via in-app notification or email.
+- Archived versions of this policy are available on this page.
+
+Continued use of the Service after an update constitutes acceptance of the new policy.
+
+---
+
+## 14. Contact Us
+
+For privacy questions, data requests, or to report a violation:
+
+**Email:** laxmi.solutions.2025@gmail.com
+
+We aim to respond within 72 hours.
