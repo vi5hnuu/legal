@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPolicy, getArchivedVersions, getAllPolicyPaths } from "@/lib/policies";
+import { extractToc } from "@/lib/toc";
 import PolicyLayout from "@/components/PolicyLayout";
 import VersionBanner from "@/components/VersionBanner";
 import type { Metadata } from "next";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
 
 interface Props {
   params: Promise<{ brand: string; policy: string; version: string }>;
@@ -19,10 +22,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { brand, policy, version } = await params;
   const doc = getPolicy(brand, policy, version);
   if (!doc) return {};
+  const url = `${BASE_URL}/${brand}/${policy}/${version}`;
   return {
     title: `${doc.meta.title} (${version}) — ${doc.meta.brand}`,
     description: doc.meta.description,
-    robots: { index: false }, // don't index archived versions
+    robots: { index: false },
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${doc.meta.title} (${version}) — ${doc.meta.brand}`,
+      description: doc.meta.description,
+      url,
+      type: "article",
+    },
   };
 }
 
@@ -32,6 +43,7 @@ export default async function PolicyVersionPage({ params }: Props) {
   if (!doc) notFound();
 
   const archivedVersions = getArchivedVersions(brand, policy);
+  const toc = extractToc(doc.content);
 
   return (
     <PolicyLayout
@@ -39,6 +51,7 @@ export default async function PolicyVersionPage({ params }: Props) {
       brandSlug={brand}
       policySlug={policy}
       archivedVersions={archivedVersions}
+      toc={toc}
       isArchived
     >
       <VersionBanner brandSlug={brand} policySlug={policy} version={version} />

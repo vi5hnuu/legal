@@ -18,6 +18,13 @@ export default function VersionBanner({ brandSlug, policySlug, version }: Props)
         >
           View current version →
         </Link>
+        <span className="mx-2 text-amber-400">·</span>
+        <Link
+          href={`/${brandSlug}/${policySlug}/${version}/diff`}
+          className="underline font-medium hover:text-amber-700"
+        >
+          See what changed
+        </Link>
       </span>
     </div>
   );
