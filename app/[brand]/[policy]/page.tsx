@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getPolicy, getArchivedVersions, getAllPolicyPaths } from "@/lib/policies";
 import { extractToc } from "@/lib/toc";
 import PolicyLayout from "@/components/PolicyLayout";
@@ -51,7 +52,7 @@ export default async function PolicyPage({ params }: Props) {
       archivedVersions={archivedVersions}
       toc={toc}
     >
-      <MDXRemote source={doc.content} />
+      <MDXRemote source={doc.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
     </PolicyLayout>
   );
 }

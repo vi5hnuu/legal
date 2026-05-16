@@ -177,7 +177,7 @@ export default function PolicyLayout({
           </div>
 
           {/* MDX prose */}
-          <div className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-base prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:my-0.5">
+          <div className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-base prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-li:my-0.5 prose-table:w-full prose-th:text-left prose-th:font-semibold prose-th:bg-gray-50 prose-th:px-3 prose-th:py-2 prose-td:px-3 prose-td:py-2 prose-tr:border-b prose-tr:border-gray-200">
             {children}
           </div>
 
