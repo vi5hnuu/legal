@@ -1,16 +1,16 @@
 ---
 title: Privacy Policy
 effectiveDate: 2026-06-12
-lastUpdated: 2026-06-12
+lastUpdated: 2026-06-19
 brand: Reflex
 brandSlug: reflex
-description: Privacy Policy for Reflex — how the on-device gesture-automation app handles your data, permissions, and ads.
+description: Privacy Policy for Reflex — how the on-device gesture-automation app handles your data, permissions, microphone recordings, and ads.
 versions: []
 ---
 
 # Privacy Policy for Reflex
 
-_Last updated: June 12, 2026 · Effective: June 12, 2026_
+_Last updated: June 19, 2026 · Effective: June 12, 2026_
 
 This Privacy Policy describes how Reflex ("We", "Us", "Our") handles your information when you use our application. By using Reflex, you agree to the practices described in this policy.
 
@@ -39,10 +39,15 @@ To detect triggers, Reflex reads sensors and system state in real time — accel
 ### 2.5 Location Data
 Location is used **only** by the optional "At a location" condition, to compare your current area against coordinates you enter. Reflex requests **coarse** location, checks it on-device at the moment a shortcut fires, and does **not** store your location, track you in the background, or transmit your location anywhere.
 
-### 2.6 Purchase Data
+### 2.6 Microphone & Audio Recordings
+The optional **Record-audio** action (a Reflex Pro feature) captures microphone audio only when you trigger it. While recording, Reflex runs a visible **microphone foreground service** with a persistent notification so you always know capture is active, and recording stops as soon as you toggle the action off. Reflex requests the **microphone (RECORD_AUDIO)** permission the first time you use this action.
+
+Recordings are saved as `.m4a` files to your device's **shared Music storage** (a "Reflex" collection), so you can find and play them in your own file manager or media apps. These files **stay on your device** — Reflex never uploads, reads, or transmits them, and you can delete them at any time from your file manager. Reflex does not record audio at any other time.
+
+### 2.7 Purchase Data
 If you buy **Reflex Pro** (a one-time in-app purchase), the transaction is handled by **Google Play Billing**. Reflex verifies your entitlement on-device through Google Play and never receives or stores your payment details.
 
-### 2.7 Advertising Data
+### 2.8 Advertising Data
 Free users see ads served by **Google AdMob**. AdMob may collect device identifiers (including the advertising ID), IP address, and usage signals to serve and measure ads, in accordance with [Google's privacy policy](https://policies.google.com/privacy). In the European Economic Area and the UK, Reflex shows a Google-certified consent form (Google User Messaging Platform) before personalised ads are served. Purchasing Reflex Pro removes all ads.
 
 ---
@@ -52,6 +57,7 @@ Free users see ads served by **Google AdMob**. AdMob may collect device identifi
 | Purpose | Legal Basis |
 |---|---|
 | Running the automations you configure (on-device) | Contract performance |
+| Recording audio when you trigger the Record-audio action, and saving it to your device (on-device) | Contract performance |
 | Verifying the Reflex Pro purchase with Google Play | Contract performance |
 | Serving ads to free users (AdMob) | Legitimate interest / consent |
 | Complying with legal obligations | Legal obligation |
@@ -69,6 +75,7 @@ Reflex is explicitly designed so that:
 
 - **Your screen content never leaves your device.** The Accessibility Service is used only to detect gestures and run your actions — it does not capture or transmit what is on screen.
 - **Your sensor and location data stay on your device.** They are evaluated in the moment and discarded.
+- **Your audio recordings stay on your device.** Recordings made by the Record-audio action are saved only to your device's storage and are never uploaded to us.
 - **We have no account and no server**, so we hold no profile of you.
 
 ---
@@ -92,6 +99,7 @@ We never share your screen content, sensor readings, or location, because we nev
 | Data type | Retention |
 |---|---|
 | Shortcuts, settings, run history | Stored locally; deleted when you uninstall the app or clear its storage |
+| Audio recordings (Record-audio action) | Saved to your device's shared Music storage; kept until you delete them |
 | Sensor / device-state / location readings | Not retained — evaluated in memory and discarded |
 | Purchase entitlement | Held by Google Play for as long as you own the product |
 | AdMob identifiers | Per Google's retention policy |
@@ -102,6 +110,7 @@ We never share your screen content, sensor readings, or location, because we nev
 
 Because Reflex stores your data only on your device, you control it directly:
 - **Access / delete** your shortcuts and history in-app, or remove everything by clearing app storage or uninstalling.
+- **Delete your audio recordings** at any time from your device's file manager or media app (they live in your shared Music storage).
 - **Withdraw ad consent** at any time (purchase Reflex Pro to go ad-free), and adjust ad personalisation via your device's Google settings.
 - **Revoke any permission** in Android Settings; the related feature simply stops working.
 
