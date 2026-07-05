@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { getAllBrands, getPoliciesForBrand, getPolicy } from "@/lib/policies";
+import PolicyIndex, { type IndexBrand } from "@/components/PolicyIndex";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,55 +8,31 @@ export const metadata: Metadata = {
 };
 
 export default function IndexPage() {
-  const brands = getAllBrands();
+  const brands: IndexBrand[] = getAllBrands()
+    .map((brand) => {
+      const policies = getPoliciesForBrand(brand)
+        .map((policy) => {
+          const doc = getPolicy(brand, policy);
+          if (!doc) return null;
+          return {
+            policySlug: policy,
+            title: doc.meta.title ?? policy.replace(/-/g, " "),
+            effectiveDate: doc.meta.effectiveDate ?? null,
+            description: doc.meta.description ?? "",
+          };
+        })
+        .filter((p): p is NonNullable<typeof p> => p !== null)
+        // Privacy policy first, then terms, then anything else
+        .sort((a, b) => a.policySlug.localeCompare(b.policySlug));
 
-  const items = brands.flatMap((brand) =>
-    getPoliciesForBrand(brand).map((policy) => {
-      const doc = getPolicy(brand, policy);
-      return { brand, policy, meta: doc?.meta };
+      const brandName = policies.length
+        ? getPolicy(brand, getPoliciesForBrand(brand)[0])?.meta.brand ?? brand
+        : brand;
+
+      return { brandSlug: brand, brandName, policies };
     })
-  );
+    .filter((b) => b.policies.length > 0)
+    .sort((a, b) => a.brandName.localeCompare(b.brandName));
 
-  return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Legal Policies</h1>
-        <p className="text-gray-500 mb-12 text-sm">
-          Official legal documents for all products.
-        </p>
-
-        <div className="divide-y divide-gray-100">
-          {items.map(({ brand, policy, meta }) => (
-            <Link
-              key={`${brand}/${policy}`}
-              href={`/${brand}/${policy}`}
-              className="flex items-start justify-between py-4 group"
-            >
-              <div>
-                <p className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                  {meta?.title ?? policy.replace(/-/g, " ")}
-                </p>
-                <p className="text-sm text-gray-500 mt-0.5 capitalize">
-                  {meta?.brand ?? brand}
-                </p>
-              </div>
-              <div className="text-right text-sm text-gray-400 shrink-0 ml-8">
-                {meta?.effectiveDate
-                  ? new Date(meta.effectiveDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })
-                  : null}
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {items.length === 0 && (
-          <p className="text-gray-400 text-sm">No policies found.</p>
-        )}
-      </div>
-    </div>
-  );
+  return <PolicyIndex brands={brands} />;
 }
