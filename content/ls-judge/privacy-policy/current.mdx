@@ -1,0 +1,167 @@
+---
+title: Privacy Policy
+effectiveDate: 2026-09-09
+lastUpdated: 2026-09-09
+brand: ls-judge
+brandSlug: ls-judge
+description: Privacy Policy for ls-judge — what we collect, how long we keep it, and how you can access, export, or delete it.
+versions: []
+---
+
+# Privacy Policy for ls-judge
+
+_Last updated: September 9, 2026 · Effective: September 9, 2026_
+
+This Privacy Policy describes how ls-judge ("We", "Us", "Our"), operated by Laxmi Solutions, collects, uses, retains, and protects information when you use the ls-judge API or web console (the "Service"). By using the Service you agree to the practices described here.
+
+---
+
+## 1. What is ls-judge?
+
+ls-judge is a hosted code-execution platform: you submit source code and optional test cases, we compile and run each submission inside an isolated Firecracker microVM, and return a verdict with per-test timing. There is a REST API and a web console (playground, submission history, account and billing views).
+
+---
+
+## 2. Information We Collect
+
+### 2.1 Account Data
+
+You can use the anonymous playground endpoints without an account; anonymous callers are identified only by client IP (used for rate limiting, not persisted long-term).
+
+When you create an account, our identity service collects:
+
+- Email address
+- Optional display name / username
+- Password (stored as a secure hash — never in plaintext)
+
+You may also sign in with **Google**, in which case we receive your Google-verified email and basic profile via OAuth.
+
+Every account also has:
+
+- An **API key** — stored on our side as a SHA-256 hash. The plaintext value is shown to you once at creation or rotation and never again; a Postgres backup, or any read-only database compromise, does not leak your key.
+- An audit trail of **plan changes** (from/to plan, source, actor, reason, timestamp) so you can see who changed your entitlement and why.
+
+### 2.2 Code, Test Cases & Verdicts
+
+When you call `POST /execute` or `POST /batch/execute`, we store:
+
+- The **source code** you submitted (`jobs.code`)
+- The **test cases** you supplied — standard input and expected output (`job_test_cases`)
+- The **runtime output** we produced — standard output, standard error, verdict, per-test timing (`test_results`)
+- Metadata: runtime chosen, time-limit, memory-limit, submission timestamp, and the identity of the caller
+
+This history powers your submission list (`GET /me/submissions`) and your usage stats. It stays on our systems until you delete the account or explicitly delete individual submissions, whichever comes first.
+
+### 2.3 Billing Data
+
+Paid subscriptions are processed by **Razorpay**. We do **not** receive or store your card, UPI, or bank-account details — those are handled entirely by Razorpay.
+
+We do store:
+
+- Your Razorpay customer id and subscription id, and the current subscription status (active / past_due / cancelled / paused)
+- An **idempotent audit** of every webhook Razorpay sends us about your subscription (`billing_events`), including the raw payload for forensic replay
+- A per-billing-period **usage meter** counting how many executions you have run, so we can invoice overage and show you your remaining monthly quota (`usage_meters`)
+
+### 2.4 Technical & Log Data
+
+Our servers log limited technical data per request:
+
+- HTTP method, path, response status, latency, and a request id (also returned as `X-Request-ID`)
+- Client IP address (used for rate limiting and to enforce the anonymous-tier per-IP quota)
+- Structured application logs, kept on rolling daily files for a limited period and rotated out (typically 30 days).
+
+We do **not** log the body of your submissions, your API key, or the plaintext of any credential.
+
+---
+
+## 3. How We Use Your Information
+
+- To run submissions you send us (source code, test cases, runtime metadata)
+- To authenticate you and keep you signed in (email, password hash, JWT sub, API key hash)
+- To enforce rate limits and per-plan quotas (IP, API key, subscription state, usage meter)
+- To bill your subscription and overage (Razorpay customer / subscription id, usage meter, invoice events)
+- To secure the Service and prevent abuse (IP, logs, rate-limit counters)
+- To send email you have consented to receive (account verification, password reset, and — only if enabled — billing receipts)
+
+---
+
+## 4. Legal Bases (EEA / UK Users)
+
+Where the GDPR applies, we process your data to:
+
+- **Perform our contract** with you (running submissions, managing your account and subscription).
+- Pursue our **legitimate interests** (security, fraud prevention, product improvement, telemetry).
+- Comply with **legal obligations** (invoicing, tax, responding to lawful requests).
+
+You may object to processing based on legitimate interests where permitted by law; contact us at the address in Section 12.
+
+---
+
+## 5. How We Share Information
+
+We do not sell your personal data. We share it only with providers that help us run the Service:
+
+- **Razorpay** — subscription checkout, payment processing, and webhook delivery.
+- **Our hosting / infrastructure provider** — to run the backend and store data.
+- **Auth / identity service** — email / password / OAuth sign-in.
+- **Authorities** — where required by law or to protect rights and safety.
+
+Third-party policies: [Razorpay Privacy Policy](https://razorpay.com/privacy/) · [Google Privacy Policy](https://policies.google.com/privacy) (for Google Sign-In).
+
+---
+
+## 6. Data Retention
+
+- **Submissions (code, test cases, verdicts, per-test output):** retained on your account until you delete the account or the individual submission.
+- **Account data (email, hashed password, hashed API key):** kept while your account exists.
+- **Billing records (Razorpay customer / subscription ids, webhook events, usage meter):** kept while your account exists and for the period required by tax and accounting law after account deletion.
+- **Plan-change audit (`plan_changes`):** kept while your account exists.
+- **Anonymous callers:** identified only by IP for the duration of the rate-limit window (currently one minute); no persistent record.
+- **Server logs:** rotated daily, kept 30 days, then deleted.
+
+---
+
+## 7. Your Rights
+
+Depending on your location you may have the right to access, correct, export, or delete your personal data, and to object to or restrict certain processing.
+
+- **Right to erasure** — call `DELETE /me` (with confirmation body `{"confirm":"delete my account"}`) or use **Account → Delete account** in the console. This hard-deletes your `users` row and cascades to your submissions, test cases, verdicts, webhooks, plan-change audit, billing records, and usage meter. It is irreversible. You must cancel any active paid subscription first (`POST /me/billing/cancel`).
+- **Right to access** — your submission history is exposed at `GET /me/submissions`; your billing state at `GET /me/billing`. For a full personal-data export, contact us at the address in Section 12.
+- **Right to correction** — you may update account fields (email, password, name) via the console or by contacting us.
+- **Right to object / restrict** — contact us and we will act on your request within the timeframes required by applicable law.
+
+---
+
+## 8. Security
+
+- **Transport:** all API and console traffic is over HTTPS.
+- **Credentials at rest:** API keys are stored as SHA-256 hashes; passwords are stored as salted hashes by our identity service.
+- **Execution isolation:** every submission runs in a fresh Firecracker microVM with no host filesystem access, no persistent state, and network egress is controlled.
+- **Access control:** admin endpoints require a separate operator credential; user-owned resources are checked for ownership before every read or mutation.
+- **Auditability:** plan changes, billing webhooks, and admin actions are recorded with actor + reason + timestamp.
+
+No method of transmission or storage is 100% secure, but we work to protect your information and honour deletion requests promptly.
+
+---
+
+## 9. Children
+
+ls-judge is not directed to children under 13 (or the minimum age in your country), and we do not knowingly collect their personal data. If you believe a child has provided us data, please contact us and we will delete it.
+
+---
+
+## 10. International Transfers
+
+Your data may be processed in countries other than your own. Where required by law, we use appropriate safeguards for such transfers (standard contractual clauses, adequacy decisions, or the transfer mechanisms our providers rely on).
+
+---
+
+## 11. Changes to This Policy
+
+We may update this Policy from time to time. We will revise the "Last updated" date above and, for material changes, provide reasonable notice via the console or the email on your account.
+
+---
+
+## 12. Contact
+
+Laxmi Solutions — [laxmi.solutions.2025@gmail.com](mailto:laxmi.solutions.2025@gmail.com)

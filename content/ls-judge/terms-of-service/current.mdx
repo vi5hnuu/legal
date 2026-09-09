@@ -1,0 +1,127 @@
+---
+title: Terms of Service
+effectiveDate: 2026-09-09
+lastUpdated: 2026-09-09
+brand: ls-judge
+brandSlug: ls-judge
+description: Terms of Service for ls-judge — the rules for using the code-execution API, web playground, accounts, and paid plans.
+versions: []
+---
+
+# Terms of Service for ls-judge
+
+_Last updated: September 9, 2026 · Effective: September 9, 2026_
+
+These Terms of Service ("Terms") govern your use of the ls-judge API and web console (together, the "Service"), operated by Laxmi Solutions ("We", "Us", "Our"). By calling the API, opening the console, or signing up for an account you agree to these Terms. If you do not agree, do not use the Service.
+
+---
+
+## 1. The Service
+
+ls-judge is a hosted code-execution platform. You submit source code and optional test cases; we compile and run each submission inside an isolated Firecracker microVM on our infrastructure and return the verdict (accepted / wrong-answer / time-limit / memory-limit / compile-error / runtime-error) with per-test timing. The Service is delivered as:
+
+- A REST API at the endpoints published in our documentation.
+- A web console (playground, submission history, admin views for account owners) at the addresses under **laxmi.solutions**.
+- WebSocket live-results for per-test streaming when a submission is running.
+
+We support a large and evolving set of programming languages and toolchains ("runtimes"). Available runtimes and their versions are listed at `GET /runtimes` and may change from time to time.
+
+---
+
+## 2. Accounts
+
+- You may call the anonymous playground endpoints without an account; anonymous callers are rate-limited by client IP.
+- To go beyond the anonymous quota you must create an account with an email + password or sign in with **Google**. Accounts are managed by our identity service.
+- You are responsible for keeping your credentials, API keys, and admin keys secure. Any request made with a valid credential is treated as authorised by the account owner.
+- API keys are rotated by you at any time via `POST /users/rotate-key`; the new key is shown once — copy it immediately.
+- You may delete your account at any time via **`DELETE /me`** or through the console's Account panel; deletion is described in the Privacy Policy.
+
+---
+
+## 3. Plans, Billing & Refunds
+
+- We offer a **Free** tier (metered monthly execution quota and per-minute rate limits) plus paid tiers (**Starter**, **Pro**, **Business**, and by-arrangement **Enterprise**). Prices, monthly quotas, and per-minute rate limits are published on the pricing page and returned by `GET /me/billing`.
+- Paid subscriptions are billed through **Razorpay** (India). By subscribing you authorise Razorpay to charge your payment method on the schedule set for your plan and agree to Razorpay's own terms and privacy policy.
+- Executions beyond your monthly quota are billed as **overage** at the per-execution rate published on the pricing page. Overage accrues per billing period and is invoiced at period close.
+- Except where required by law, subscription fees and overage charges are **non-refundable**. If a payment is refunded or charged back the corresponding account may be downgraded or suspended.
+- You may cancel a subscription at any time via `POST /me/billing/cancel`. The paid plan remains active until the end of the current billing period (`cancel_at_cycle_end`); no refund is issued for the unused portion.
+
+---
+
+## 4. Your Content
+
+- You retain all rights to the source code, test inputs, and any files you submit ("Your Content"). We claim no ownership.
+- You grant us a limited, worldwide, non-exclusive licence to store, transmit, execute, and display Your Content solely to provide the Service (running your code, showing your submission history, delivering verdicts to you and any webhooks you configure).
+- Your Content is stored per your account: source code, test cases, standard input, standard output, standard error, verdicts, and per-test timing are retained on our systems until you delete the account or explicitly delete individual submissions where such controls are offered.
+- You are responsible for what you submit. You represent that you have the right to submit Your Content and that it does not infringe any third-party rights or any law.
+
+---
+
+## 5. Acceptable Use
+
+You may not use the Service to:
+
+- **Attack or abuse infrastructure** — including our infrastructure, other customers, or third parties (denial-of-service, scanning, exfiltration, credential-stuffing).
+- **Mine cryptocurrency** or run any compute workload primarily intended to extract value from our infrastructure. Code execution is metered for correctness and testing, not for background compute.
+- Circumvent, exceed, evade, or attack rate limits, quotas, sandbox isolation, or authentication; probe for vulnerabilities without our written permission; or reverse engineer the Service.
+- Submit content that is illegal, malicious, infringing, that harasses or endangers anyone, or that you have no right to submit.
+- Resell the Service, use it to build a directly-competing offering, or share credentials across organisations, without our written permission.
+- Exceed reasonable use of the platform including body-size limits, batch limits, concurrency limits, and per-plan monthly quotas.
+
+We may throttle, suspend, or terminate access for any violation.
+
+---
+
+## 6. Rate Limits & Availability
+
+- Every response carries `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` headers so your SDK can implement backoff. `429 Too Many Requests` responses additionally carry `Retry-After`.
+- We aim for high availability but do not guarantee uninterrupted service on the Free, Starter, or Pro tiers. **Business** and **Enterprise** plans may include an explicit uptime commitment set out in the plan description or a separate service agreement.
+- We may modify, suspend, or discontinue any part of the Service — including specific runtimes, endpoints, or tier features — at any time. For material breaking changes we will provide reasonable notice.
+
+---
+
+## 7. API & Backwards Compatibility
+
+- Endpoints, request shapes, and response shapes documented in our public API reference are the contract. We aim to keep them stable and versioned; when a breaking change is unavoidable we will version the endpoint and provide a deprecation window.
+- We may add fields to responses at any time — clients must ignore unknown fields.
+- Idempotency: `POST /execute` and `POST /batch/execute` accept an `Idempotency-Key` header (up to 255 chars). Same key + same body returns the cached response for 24 hours; same key + different body returns `400 idempotency_key_in_use`.
+
+---
+
+## 8. Disclaimers
+
+The Service is provided **"as is" and "as available"** without warranties of any kind, whether express or implied, including fitness for a particular purpose, merchantability, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or that verdicts and timings will be reproducible across runs. **Do not use the Service to run production workloads that require guaranteed correctness or timing.**
+
+Code you submit is executed in isolated microVMs, but you remain responsible for the content and consequences of what you run. We are not responsible for outcomes of executing Your Content.
+
+---
+
+## 9. Limitation of Liability
+
+To the maximum extent permitted by law, Laxmi Solutions will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, profits, revenue, or goodwill, arising from your use of the Service. Our total aggregate liability for any claim is limited to the amount you paid us for the Service in the twelve (12) months preceding the claim.
+
+---
+
+## 10. Termination
+
+- You may stop using the Service and delete your account at any time via `DELETE /me` or the console.
+- We may suspend or terminate access if you breach these Terms, misuse the Service, fail to pay amounts owed, or if required by law. Where practical we will notify you before termination for non-urgent reasons.
+- On termination for cause we may delete Your Content and account data as described in the Privacy Policy.
+
+---
+
+## 11. Governing Law
+
+These Terms are governed by the laws of India, without regard to conflict-of-laws rules. Disputes are subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. Nothing here limits mandatory consumer rights you may have under your local law.
+
+---
+
+## 12. Changes to These Terms
+
+We may update these Terms from time to time. We will revise the "Last updated" date above and, for material changes, provide reasonable notice via the console or the email on your account. Your continued use of the Service after changes take effect means you accept the updated Terms.
+
+---
+
+## 13. Contact
+
+Laxmi Solutions — [laxmi.solutions.2025@gmail.com](mailto:laxmi.solutions.2025@gmail.com)
