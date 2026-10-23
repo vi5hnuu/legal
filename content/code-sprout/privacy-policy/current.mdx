@@ -1,0 +1,226 @@
+---
+title: Privacy Policy
+effectiveDate: 2026-10-23
+lastUpdated: 2026-10-23
+brand: Code Sprout
+brandSlug: code-sprout
+description: Privacy Policy for Code Sprout — what we collect, how long we keep it, how you can access, export, or delete it, and your rights under India's DPDPA, 2023.
+versions: []
+---
+
+# Privacy Policy for Code Sprout
+
+_Last updated: October 23, 2026 · Effective: October 23, 2026_
+
+This Privacy Policy describes how **Code Sprout** ("We", "Us", "Our"), operated by **Laxmi Solutions**, collects, uses, retains, and protects your personal data when you use the Code Sprout website at [https://code-sprout.laxmi.solutions](https://code-sprout.laxmi.solutions) and the APIs that back it (together, the "Service"). By using the Service you agree to the practices described here.
+
+This Policy is written to meet the requirements of India's **Digital Personal Data Protection Act, 2023 ("DPDPA")**. In this Policy, "You" refers to the **Data Principal** and we refer to ourselves as the **Data Fiduciary**.
+
+---
+
+## 1. What is Code Sprout?
+
+Code Sprout is a coding-practice website: tutorials and articles, a library of practice problems with an in-browser editor and automatic judge, study plans, a comment and bookmark layer, and a Studio for authoring new content. You can read anonymously; you need an account to run and submit code, bookmark problems, comment, or publish content.
+
+---
+
+## 2. Information We Collect
+
+### 2.1 Information you give us when you create an account
+
+Our shared identity service collects:
+
+- **Email address**
+- **Username** (optional at signup, you can set/change it later)
+- **Password**, stored only as a BCrypt hash — the plaintext is never written anywhere on our side
+
+You may instead sign in with **Google**, in which case we receive, through Google Identity Services, the following from your Google account:
+
+- Your **Google-verified email address**
+- Your **name** and **profile picture** URL as recorded on your Google account
+
+We do not request any additional Google scopes beyond standard OpenID Connect profile data.
+
+### 2.2 Information you give us by using Code Sprout
+
+- Content you author in the Studio: articles, problem statements, test sets, solutions, videos, study plans.
+- Code you run or submit against practice problems. Your submissions and their verdicts are stored in your account's submission history.
+- Comments and replies you post.
+- Private notes you save against a problem (visible only to you).
+- Bookmarks and the lists you organise them in (private by default).
+- Likes, follows, and ratings you give.
+- Your display name, handle, bio and avatar as you edit them on your profile.
+- Reports you submit about content or users.
+
+### 2.3 Information we observe
+
+Our servers log a limited amount of technical data per request:
+
+- HTTP method, path, response status, latency, and a request id (also returned as `X-Request-ID`)
+- Your IP address (used for rate limiting and the anonymous-tier per-IP quota)
+- Structured application logs, kept on rolling daily files and rotated out after approximately 30 days
+
+We do **not** log request bodies, your password, your session token, or the contents of your code submissions in these access logs.
+
+---
+
+## 3. Why We Collect It (Purposes under DPDPA, 2023)
+
+We collect the data above for these specific, limited purposes:
+
+| Purpose | What we use |
+|---|---|
+| Create and secure your account | email, password hash, Google profile (if OAuth), IP, session cookies |
+| Judge the code you submit | submission source, selected language, problem id, verdict and timing |
+| Keep your learning history and progress | submissions, solved status, streaks, review schedule |
+| Let you contribute content | articles, problems, test sets, videos you author |
+| Deliver features you asked for | bookmarks, lists, follows, notes, comments, reports |
+| Send transactional email | your email address — used for sign-up verification, password reset, and account-security notifications |
+| Rate-limit abuse and protect the service | IP address, rate-limit buckets in Redis |
+| Comply with law | records necessary for audit, dispute resolution, and lawful requests |
+
+We do **not** sell your personal data. We do **not** use your personal data for behavioural advertising, nor do we embed third-party ad or analytics scripts on the site.
+
+---
+
+## 4. Consent (DPDPA Section 4–5)
+
+We rely on your **consent** as the lawful basis for most of this processing. You give consent by creating an account and ticking the checkbox at sign-up that confirms you have read and agree to this Privacy Policy and our Terms of Service.
+
+Your consent is:
+
+- **Specific** — covering the purposes listed in Section 3 above
+- **Informed** — through this Policy, which we present at the point of sign-up
+- **Free and unconditional** — you can decline, in which case you can still browse the site without an account (anonymous access is supported)
+- **Unambiguous** — through an affirmative check-box, not pre-ticked
+- **Withdrawable** — see Section 7 (Your Rights)
+
+Processing that is **necessary for a legitimate use** under Section 7 of the DPDPA (for example, security logging, fraud prevention, and complying with legal obligations) does not require your consent and is covered by the lawful bases in the Act.
+
+---
+
+## 5. Children (DPDPA Section 9)
+
+The Service is **not intended for users under 18**. During sign-up we ask you to confirm that you are 18 or older. If we learn that an account belongs to a child, we will suspend it and delete the account's personal data as soon as reasonably possible.
+
+We do not knowingly track children, serve them targeted advertising, or process their personal data for any secondary purpose.
+
+If you believe a child has created an account, write to our Grievance Officer (Section 13) and we will act within statutory timelines.
+
+---
+
+## 6. Who Else Sees Your Data (Sub-Processors & Transfers, DPDPA Section 16)
+
+To run the Service we route some data through the following service providers:
+
+| Provider | What they see | Where | Purpose |
+|---|---|---|---|
+| **Amazon Web Services — S3** | Images, videos, test sets, archived revisions you upload | **ap-south-1 (Mumbai, India)** | Object storage |
+| **Amazon CloudFront** (`code-sprout-content.laxmi.solutions`) | Public images and videos (served to any reader) | Edge POPs worldwide | Content delivery |
+| **Amazon SES** | Your email address, display name, and the body of transactional emails we send you | **ap-south-1 (Mumbai, India)** | Transactional email |
+| **Google LLC — Identity Services** | Only invoked **if** you choose "Sign in with Google": your Google-verified email, name, profile picture | United States | Sign-in |
+| **YouTube (embedded player)** | We embed videos using `youtube-nocookie.com`. YouTube may receive your IP and basic device metadata only after you press play. | United States / Google infrastructure | Video playback |
+| **Laxmi Solutions — ls-judge** (`runtimes.laxmi.solutions`) | Your code when you run or submit, and the verdict it returns | **ap-south-1 (Mumbai, India)** | Code execution sandbox |
+| **Laxmi Solutions — identity service** (`ls-judge-auth.laxmi.solutions`) | Your email, password hash, Google profile, session metadata | **ap-south-1 (Mumbai, India)** | Account & authentication |
+
+Where a provider is outside India, we rely on the Central Government's permissions under DPDPA Section 16 and on each provider's standard contractual protections for cross-border transfer. We do not transfer personal data to any country or territory notified by the Central Government as restricted.
+
+**We do not share your personal data with anyone else.** No advertisers, no data brokers, no analytics vendors.
+
+---
+
+## 7. Your Rights (DPDPA Sections 11–14)
+
+As a Data Principal, you have the following rights. All of them can be exercised directly in the website, except where noted:
+
+| Right | How to exercise it |
+|---|---|
+| **Access** — a summary of the personal data we hold about you | Sign in → **Settings → Account** (your profile, email, created date). Email the Grievance Officer for a full export. |
+| **Correction** of personal data that is inaccurate | Sign in → **Settings → Profile** (display name, handle, bio, avatar). To correct your email, email the Grievance Officer. |
+| **Erasure** — delete your account and personal data | Sign in → **Settings → Account → Delete account**. If you cannot sign in, use the pre-login form at [/delete-my-data](https://code-sprout.laxmi.solutions/delete-my-data). |
+| **Nomination** — appoint someone to exercise your rights on your death or incapacity | Email the Grievance Officer with the nominee's email address and a signed declaration. |
+| **Grievance redressal** — raise a complaint about how we handled your data | See Section 13. |
+| **Withdraw consent** | Delete your account (above). Withdrawal of consent does not affect the lawfulness of processing done before withdrawal. |
+
+We will acknowledge every rights request without undue delay and respond within statutory timelines. We may ask you to verify your email before acting on a request to prevent impersonation.
+
+---
+
+## 8. How Long We Keep Your Data (Retention)
+
+| Data | Retention |
+|---|---|
+| Account record (email, password hash, profile) | Until you delete your account. After deletion, within 30 days we wipe or anonymise your profile; authored content is credited to "Former member" (we do not re-attribute it) or deleted at your request. |
+| Submissions and submission history | Until you delete your account. Individual submissions can be deleted earlier from your submission list. |
+| Private notes and bookmarks | Deleted immediately on account deletion. |
+| Access logs | Approximately **30 days** on rolling daily files, then rotated out automatically. |
+| Audit records of account changes and deletions | **12 months**, so we can respond to disputes and investigations. |
+| Email delivery metadata (SES) | Per Amazon SES retention — typically a few days of deliverability logs. |
+
+We do not retain personal data for longer than needed for the purpose it was collected.
+
+---
+
+## 9. How We Protect Your Data (DPDPA Section 8(5))
+
+- Passwords are hashed with **BCrypt** before storage. The plaintext never leaves memory.
+- Sign-in tokens are **RS256-signed JWTs** issued by our identity service; token audience and expiry are checked on every request.
+- Session cookies are **HttpOnly**, **Secure**, and `SameSite=Lax`.
+- All traffic between you and the Service is over **HTTPS** with HSTS enforced.
+- Code submissions are executed inside **isolated Firecracker microVMs** on ls-judge, not on shared machines.
+- The public bucket is served only through a CloudFront distribution; the private bucket (test sets, checkers, archived revisions) is reachable only via time-limited presigned URLs we mint for authorised actions.
+- Access to production data is limited to the Laxmi Solutions operations team.
+- Our APIs are rate-limited per IP and per account; abusive traffic is blocked at the edge.
+
+No system is perfectly secure. If a breach of your personal data occurs, we will notify you and the Data Protection Board of India without unreasonable delay, as required by DPDPA Section 8(6).
+
+---
+
+## 10. Cookies and Local Storage
+
+We use a small number of **first-party** cookies and `localStorage` entries, all strictly for site function:
+
+- **Session cookie** — a short-lived JWT that keeps you signed in.
+- **Theme preference** — remembers whether you chose light or dark mode.
+- **Draft and editor state** — your in-progress code and article drafts, stored in `localStorage` so you don't lose work if your tab reloads.
+
+We do **not** set tracking cookies, advertising cookies, or any third-party cookies. Google Identity Services sets its own cookies only while the sign-in widget is open.
+
+---
+
+## 11. Code and Content You Publish
+
+- Content you publish through the Studio (articles, problems, videos) is intended to be public and is attributed to your profile.
+- Comments you post are public and attributed to your profile.
+- Private notes, submissions, bookmarks, and reports are visible only to you (and, for reports, to our moderation team).
+
+Nothing you have **not** chosen to publish is shown on your public profile.
+
+---
+
+## 12. Changes to This Policy
+
+We may update this Policy from time to time. We publish every version at `legal.laxmi.solutions/code-sprout/privacy-policy`. Material changes will be notified by email to the address on your account at least 7 days before they take effect, and the previous version remains accessible under a dated archive URL.
+
+---
+
+## 13. Grievance Officer (DPDPA Section 11)
+
+If you have a question, concern, or complaint about how we handle your personal data — or if you want to exercise any of the rights in Section 7 — please contact our Grievance Officer:
+
+- **Grievance Officer:** Operator — Laxmi Solutions
+- **Email:** [laxmi.solutions.2025@gmail.com](mailto:laxmi.solutions.2025@gmail.com)
+- **Postal address:** available on written request to the email above
+
+We will acknowledge your grievance within 48 hours and respond within statutory timelines (currently 30 days). If you are not satisfied with our response, you may escalate to the **Data Protection Board of India** at the address published on the Board's website.
+
+---
+
+## 14. Contact
+
+For anything that is not a formal grievance:
+
+- Website: [https://code-sprout.laxmi.solutions](https://code-sprout.laxmi.solutions)
+- Email: [laxmi.solutions.2025@gmail.com](mailto:laxmi.solutions.2025@gmail.com)
+
+_© 2026 Laxmi Solutions. This Privacy Policy is published under the "Code Sprout" brand at `legal.laxmi.solutions/code-sprout/privacy-policy`._
