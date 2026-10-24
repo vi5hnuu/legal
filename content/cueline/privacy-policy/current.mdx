@@ -1,16 +1,20 @@
 ---
 title: Privacy Policy
-effectiveDate: 2026-07-12
-lastUpdated: 2026-07-12
+effectiveDate: 2026-10-24
+lastUpdated: 2026-10-24
 brand: Cueline
 brandSlug: cueline
 description: Privacy Policy for Cueline — how we handle your data in the teleprompter on the web and in the Android app.
-versions: []
+versions:
+  - date: "2026-07-12"
+    label: Initial version
+  - date: "2026-10-24"
+    label: Phone remote — Nearby and local-network permissions, and what passes between your devices
 ---
 
 # Privacy Policy for Cueline
 
-_Last updated: July 12, 2026 · Effective: July 12, 2026_
+_Last updated: October 24, 2026 · Effective: October 24, 2026_
 
 This Privacy Policy explains how **Laxmi Solutions** ("We", "Us", "Our") handles information in connection with **Cueline**, our teleprompter, available as **Cueline for Web** (the browser app) and **Cueline for Android** (package `solutions.laxmi.cueline`). Cueline works **without an account** and keeps your content **on your own device**. We do not run a backend that stores your scripts or recordings.
 
@@ -21,6 +25,7 @@ This Privacy Policy explains how **Laxmi Solutions** ("We", "Us", "Our") handles
 - Your **scripts, settings, and recordings stay on your device** — in your browser's local storage on the web, and in the app's local database on Android. We don't upload or receive them.
 - We **don't ask you to create an account** and we don't collect your name, email, or contacts.
 - The **Android free tier shows ads** through Google AdMob, which uses an advertising identifier. **Cueline Pro** (a one-time purchase) removes all ads. The **web app does not show ads**.
+- The Android **phone remote** sends playback controls and a short preview of your script **directly between your own devices** over Bluetooth or your local Wi-Fi — never through us.
 - Some features rely on **your device or browser's own services** (speech recognition, the camera, purchases). Where those involve third parties like Google or Apple, their privacy policies apply.
 
 ---
@@ -45,26 +50,39 @@ Depending on the features you use, Cueline may request:
 | Notifications (Android) | For the ongoing notification required by the floating-overlay foreground service. |
 | Display over other apps (Android) | To show the floating teleprompter over other apps. |
 | Bluetooth (Android) | To pair with clickers and foot-pedals used as hands-free remotes. |
+| Nearby devices (Android 12+) | For the phone remote: to find, connect to, and exchange controls with another phone running Cueline over Bluetooth and Wi-Fi. Cueline declares that it does **not** use this to derive your location. |
+| Nearby Wi-Fi devices (Android 13+) | For the phone remote's Wi-Fi connection between phones. Cueline declares that it does **not** use this to derive your location. |
+| Location (Android 12 and earlier only) | On these Android versions the system requires location permission to scan for nearby Bluetooth and Wi-Fi devices. Cueline uses it only for the phone remote and **does not read or store your location**. |
+| Local network access (Android, where required) | For the browser remote: to let a browser on your Wi-Fi reach the remote page served by your phone. |
+| Wi-Fi state (Android) | To find your phone's local network address for the browser remote and to check that Wi-Fi is available. |
 
 You can grant or revoke these in your browser or system settings at any time. Cueline requests each permission only when you use the related feature.
 
 ### 2.4 Voice Recognition
 Voice-tracking uses **your device or browser's built-in speech recognition**. On the web this is the browser's Web Speech API, so audio may be processed by the browser vendor's service (for example Google in Chrome, or Apple in Safari). On Android it is the system speech recogniser; Cueline prefers **on-device** recognition where available, and if the device falls back to a network recogniser, the audio is handled by that provider (often Google). We **do not receive, store, or transmit** your audio — recognition is performed by your device or browser under its provider's privacy policy.
 
-### 2.5 Purchases (Cueline Pro)
+### 2.5 Phone Remote (Android)
+The phone remote lets another device control the prompter. It works only while you turn it on, and connections stay **between your own devices** — nothing is sent to us.
+
+- **Another phone running Cueline** connects through **Google Play services' Nearby Connections**, over Bluetooth or Wi-Fi. While you allow connections, your phone is discoverable to nearby devices running Cueline under **your device's name** (as set in your phone's settings). Each connection must be approved on the prompter phone after comparing a code shown on both screens.
+- **A browser** connects to a small web page served **by your phone on your local network**. The link contains a random, single-session code; anyone on the same network who has that link can open the remote, so share it only with people you trust. Browser-remote traffic stays on your local network, but it is **not encrypted** between the browser and your phone.
+- **What is exchanged:** remote controls (such as play, pause, speed, position, text size, and mirror) from the remote to the prompter, and from the prompter to the remote: the **script's title**, a **short excerpt of the line being read**, playback position and time left, and your display settings. Your full script, recordings, and audio are not sent.
+- **When it stops:** you can stop all remotes at any time; Cueline also stops hosting automatically shortly after you leave the prompter. Nothing from a remote session is stored.
+
+### 2.6 Purchases (Cueline Pro)
 On Android, the one-time **Cueline Pro** purchase is processed by **Google Play Billing**. Google handles your payment; **we never see your card or payment details**. We only receive a signal indicating whether the purchase is active, which we store locally to unlock Pro features.
 
-### 2.6 Advertising (Android Free Tier Only)
+### 2.7 Advertising (Android Free Tier Only)
 The free tier of the Android app shows ads via **Google AdMob**. To serve ads, Google's advertising SDK may access a resettable **advertising identifier** and related device and ad information. In regions that require it (such as the EEA and UK), we present a **consent prompt (Google User Messaging Platform)** before personalised ads are served. The **web app has no ads**, and **Cueline Pro removes all ads**.
 
-### 2.7 Diagnostics
+### 2.8 Diagnostics
 We do not add our own analytics SDK. However, Google Play, AdMob, and the consent SDK may collect limited **crash, performance, and diagnostic** data as part of their services. Standard **web-server logs** (such as IP address, timestamp, and user-agent) may also be recorded by our hosting provider when you load the website, for security and reliability; these logs are not used to identify you and are not linked to your Cueline content.
 
 ---
 
 ## 3. How We Use Information
 
-Because your content stays on your device, we use information only to: provide and operate the app's features on your device; complete and validate your **Cueline Pro** purchase (via Google Play); show and, where consented, personalise **ads** on the Android free tier; and keep the service secure and working. We do **not** sell your personal information.
+Because your content stays on your device, we use information only to: provide and operate the app's features on your device, including passing controls and status between your devices when you use the phone remote; complete and validate your **Cueline Pro** purchase (via Google Play); show and, where consented, personalise **ads** on the Android free tier; and keep the service secure and working. We do **not** sell your personal information.
 
 ---
 
@@ -75,6 +93,7 @@ Cueline relies on the following third parties, whose handling of data is governe
 - **Google AdMob** (ads, Android free tier) — see [Google's Privacy Policy](https://policies.google.com/privacy) and [AdMob data disclosures](https://support.google.com/admob/answer/6128543).
 - **Google Play Billing** (purchases, Android) — [Google's Privacy Policy](https://policies.google.com/privacy).
 - **Google User Messaging Platform** (ad consent, Android) — [Google's Privacy Policy](https://policies.google.com/privacy).
+- **Google Play services — Nearby Connections** (phone remote, Android) — [Google's Privacy Policy](https://policies.google.com/privacy).
 - **Your device or browser speech provider** (voice-tracking) — for example Google or Apple, under their respective policies.
 
 ---
@@ -98,6 +117,8 @@ Content and settings remain on your device until **you delete them, clear the ap
 ## 7. Security
 
 Your content is stored within your browser's or the app's private storage on your device, protected by your device's own security model. No method of storage or transmission is 100% secure, but because your data stays local, its security is largely governed by the security of your own device.
+
+When you use the phone remote, connections between phones require your approval on the prompter phone, and the browser remote's link changes every time you start it. Because browser-remote traffic on your local network is not encrypted, use it on networks you trust, and stop remotes when you are done.
 
 ---
 
