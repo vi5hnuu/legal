@@ -79,7 +79,7 @@ We collect the data above for these specific, limited purposes:
 | Rate-limit abuse and protect the service | IP address, rate-limit buckets in Redis |
 | Comply with law | records necessary for audit, dispute resolution, and lawful requests |
 
-We do **not** sell your personal data. We do **not** use your personal data for behavioural advertising, nor do we embed third-party ad or analytics scripts on the site.
+We do **not** sell your personal data. We do, however, show third-party advertisements via **Google AdSense** to help cover the cost of running the Service — see Section 6a below for exactly what AdSense receives and how to opt out of personalisation.
 
 ---
 
@@ -103,7 +103,7 @@ Processing that is **necessary for a legitimate use** under Section 7 of the DPD
 
 The Service is **not intended for users under 18**. During sign-up we ask you to confirm that you are 18 or older. If we learn that an account belongs to a child, we will suspend it and delete the account's personal data as soon as reasonably possible.
 
-We do not knowingly track children, serve them targeted advertising, or process their personal data for any secondary purpose.
+We do not knowingly track children or process their personal data for any secondary purpose. Advertising on the Service runs through Google AdSense in **non-personalised mode** for any reader we have reason to believe may be a child.
 
 If you believe a child has created an account, write to our Grievance Officer (Section 13) and we will act within statutory timelines.
 
@@ -122,10 +122,41 @@ To run the Service we route some data through the following service providers:
 | **YouTube (embedded player)** | We embed videos using `youtube-nocookie.com`. YouTube may receive your IP and basic device metadata only after you press play. | United States / Google infrastructure | Video playback |
 | **Laxmi Solutions — ls-judge** (`runtimes.laxmi.solutions`) | Your code when you run or submit, and the verdict it returns | **ap-south-1 (Mumbai, India)** | Code execution sandbox |
 | **Laxmi Solutions — identity service** (`ls-judge-auth.laxmi.solutions`) | Your email, password hash, Google profile, session metadata | **ap-south-1 (Mumbai, India)** | Account & authentication |
+| **Google LLC — AdSense** | Your IP address, user-agent, interactions with the ads on this site, and (if you have accepted Google's cookies elsewhere) your Google advertising profile | United States / Google infrastructure | Serving contextual and personalised advertisements that fund the Service |
 
 Where a provider is outside India, we rely on the Central Government's permissions under DPDPA Section 16 and on each provider's standard contractual protections for cross-border transfer. We do not transfer personal data to any country or territory notified by the Central Government as restricted.
 
-**We do not share your personal data with anyone else.** No advertisers, no data brokers, no analytics vendors.
+**We do not share your personal data with anyone else** beyond the providers listed above. We have no other advertisers, no data brokers, no analytics vendors.
+
+---
+
+## 6a. Advertising via Google AdSense
+
+Code Sprout displays third-party advertisements via **Google AdSense** (publisher ID `pub-4715945578201106`) to help cover hosting, judge-execution and bandwidth costs for a service we offer free.
+
+### What Google receives
+
+When an ad renders on a page you visit, Google receives: your IP address, user-agent, the URL of the current page, and — if you have Google's advertising cookies — identifiers from your Google advertising profile. Google uses these to pick which ad to show you.
+
+### Cookies set by AdSense
+
+AdSense sets its own cookies and uses the Interest-Based Advertising framework. These cookies are **third-party**, set under `*.google.com` and `*.doubleclick.net`, and are **not** read by us. They are used for ad frequency capping, click measurement, and (unless you opt out) personalisation.
+
+### How to opt out of personalised ads
+
+- **This site, immediately:** append `?ab=0` to any URL and the next page view opts you out for the session, or
+- **Everywhere Google serves ads:** [Google Ads Settings](https://adssettings.google.com/) → "Personalised ads" → off, or
+- **In the EU / UK / Swiss consent flow:** the IAB TCF prompt we show on first visit lets you decline personalisation; your choice persists via a first-party cookie.
+
+Non-personalised ads still show, but they are chosen only from the current page's content, not from your Google ad profile.
+
+### Children
+
+Any session we have reason to believe is from a child (because the signed-in account self-declared under 18, or the device opts in to Chrome's child-safe browsing) is served ads in **non-personalised mode** regardless of the above.
+
+### Full policy
+
+Google's own policy on how AdSense uses the data it collects is at <https://policies.google.com/technologies/ads>.
 
 ---
 
@@ -184,7 +215,7 @@ We use a small number of **first-party** cookies and `localStorage` entries, all
 - **Theme preference** — remembers whether you chose light or dark mode.
 - **Draft and editor state** — your in-progress code and article drafts, stored in `localStorage` so you don't lose work if your tab reloads.
 
-We do **not** set tracking cookies, advertising cookies, or any third-party cookies. Google Identity Services sets its own cookies only while the sign-in widget is open.
+In addition, Google AdSense (Section 6a) sets its own **third-party cookies** under `*.google.com` and `*.doubleclick.net` to cap ad frequency and (unless you opt out) personalise ads. Google Identity Services sets its own cookies only while the sign-in widget is open.
 
 ---
 
