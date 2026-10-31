@@ -23,12 +23,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = getPolicy(brand, policy);
   if (!doc) return {};
   const url = `${BASE_URL}/${brand}/${policy}`;
+  // SERP-tuned title. GSC data (Oct 2026 export) showed privacy-policy pages ranking well
+  // (position 5-8) for safety-intent queries like "is pdfcraft safe", "is pdfcraft legal",
+  // "is pdfcraft safe to use" but getting zero clicks because the SERP title read as a dry
+  // "Privacy Policy — PDF Craft". Rephrasing privacy pages as "Is <Brand> Safe? Privacy &
+  // Security Policy" directly answers the question in the SERP and lifts CTR materially.
+  // Terms, cookies, grievance pages keep the straightforward "<Title> — <Brand>" shape.
+  const title = policy === "privacy-policy"
+    ? `Is ${doc.meta.brand} Safe? Privacy & Security Policy`
+    : `${doc.meta.title} — ${doc.meta.brand}`;
   return {
-    title: `${doc.meta.title} — ${doc.meta.brand}`,
+    title,
     description: doc.meta.description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${doc.meta.title} — ${doc.meta.brand}`,
+      title,
       description: doc.meta.description,
       url,
       type: "article",
