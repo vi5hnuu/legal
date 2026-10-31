@@ -1,20 +1,22 @@
 ---
 title: Privacy Policy
-effectiveDate: 2026-10-10
-lastUpdated: 2026-10-10
+effectiveDate: 2026-10-31
+lastUpdated: 2026-10-31
 brand: Kern
 brandSlug: kern
-description: Privacy Policy for Kern — a Typst editor that compiles on your phone. No account and no analytics; the free version shows ads, Kern Pro has none.
+description: Privacy Policy for Kern — a Typst editor that compiles on your phone. No account and no analytics, crash reports you can turn off; the free version shows ads, Kern Pro has none.
 versions:
   - date: "2026-10-10"
     label: Initial version
+  - date: "2026-10-31"
+    label: Crash reports (Firebase Crashlytics), which you can turn off in Settings
 ---
 
 # Privacy Policy for Kern
 
-_Last updated: October 10, 2026 · Effective: October 10, 2026_
+_Last updated: October 31, 2026 · Effective: October 31, 2026_
 
-This Privacy Policy describes how Kern ("We", "Us", "Our"), made by Laxmi Solutions, handles your information when you use the Kern app. In short: **your documents stay on your phone**. Kern has no account system, no servers of its own that receive your documents, and no analytics. The free version shows ads from Google AdMob (section 2.11); **Kern Pro has no ads**.
+This Privacy Policy describes how Kern ("We", "Us", "Our"), made by Laxmi Solutions, handles your information when you use the Kern app. In short: **your documents stay on your phone**. Kern has no account system, no servers of its own that receive your documents, and no analytics. Crash reports, which you can turn off, help us fix bugs (section 2.12). The free version shows ads from Google AdMob (section 2.11); **Kern Pro has no ads**.
 
 ---
 
@@ -26,7 +28,7 @@ Kern is a Typst editor for Android. You write documents, and Kern compiles them 
 
 ## 2. Information We Collect
 
-**We do not collect personal information.** Kern does not ask you to sign up, and it contains no analytics or crash-reporting SDKs. The free version includes Google's advertising SDK, which is described in section 2.11. The sections below explain what stays on your device and the network connections Kern makes on your behalf.
+**We do not collect personal information**, apart from the crash reports described in section 2.12. Kern does not ask you to sign up, and it contains no analytics SDK. It uses Google's Firebase Crashlytics to receive crash reports, which you can turn off, and the free version includes Google's advertising SDK, which is described in section 2.11. The sections below explain what stays on your device and the network connections Kern makes on your behalf.
 
 ### 2.1 Your Projects and Settings (On Your Device)
 
@@ -82,11 +84,17 @@ To show, measure and limit ads, Google AdMob collects information from your devi
 
 Ads are chosen using general topics related to Kern (such as mathematics and academic writing). Where the law requires it (for example in the European Economic Area and the United Kingdom), Kern asks for your **consent** before any ad is requested, using Google's consent tool, and you can change your choice at any time in **Settings → Ad privacy choices**. You can also reset or delete your advertising ID, or opt out of personalised ads, in your device's **Settings → Google → Ads** (or **Settings → Privacy → Ads**). Kern limits ads to content suitable for general audiences.
 
+### 2.12 Crash Reports
+
+To find and fix bugs, Kern uses **Firebase Crashlytics**, a service provided by Google. When the app crashes, or when something important fails (for example, Google Play can't install the Snap math feature), a report is sent to Crashlytics. It contains the technical details of the error (such as the stack trace and error codes), your device model, Android version, app version, available memory and storage, whether the app was open on screen, and a random installation identifier created by Firebase. Reports **never include your documents, file or project names, or account details**, and they are not used for advertising.
+
+Google processes crash reports on our behalf under the [Firebase privacy and security terms](https://firebase.google.com/support/privacy), and they are deleted after 90 days. You can turn crash reports off at any time in **Settings → About → Send crash reports**; nothing more is sent until you turn them back on.
+
 ---
 
 ## 3. Permissions
 
-- **Internet and network state** — to download Typst packages and the package list, Git and Drive sync, Google Play downloads and purchases, and ads in the free version.
+- **Internet and network state** — to download Typst packages and the package list, Git and Drive sync, Google Play downloads and purchases, crash reports, and ads in the free version.
 - **Advertising ID** (`AD_ID`) — declared by Google's advertising SDK so ads can be measured and limited in the free version (section 2.11).
 
 Kern opens files and folders only through Android's file and folder pickers, or when you open a file with Kern from another app, so it can read only what you choose.
@@ -95,13 +103,13 @@ Kern opens files and folders only through Android's file and folder pickers, or 
 
 ## 4. How We Share Information
 
-We do not sell, rent or share personal information, because we do not collect it. The only services Kern communicates with are the ones you use: Google Play (downloads, updates, purchases, ratings), Google Drive (if you enable it), your Git host (if you use Git), the Typst package server (for packages and the package list) and, in the free version, Google AdMob (section 2.11), which collects the advertising data described there directly from your device.
+We do not sell or rent personal information. The only services Kern communicates with are the ones you use: Google Play (downloads, updates, purchases, ratings), Google Drive (if you enable it), your Git host (if you use Git), the Typst package server (for packages and the package list), Firebase Crashlytics (crash reports, unless you turn them off; section 2.12) and, in the free version, Google AdMob (section 2.11), which collects the advertising data described there directly from your device.
 
 ---
 
 ## 5. Data Retention and Deletion
 
-Everything Kern stores is on your device or in places you choose. You can delete a project in the app, clear downloaded packages in Settings, remove Git credentials in Settings, or clear the app's data or uninstall it to remove everything in the app. Files in your projects folder, and data you pushed to a Git host or synced to Google Drive, stay there until you delete them.
+Everything Kern stores is on your device or in places you choose. You can delete a project in the app, clear downloaded packages in Settings, remove Git credentials in Settings, or clear the app's data or uninstall it to remove everything in the app. Files in your projects folder, and data you pushed to a Git host or synced to Google Drive, stay there until you delete them. Crash reports are deleted by Firebase Crashlytics after 90 days.
 
 ---
 
@@ -119,7 +127,7 @@ Kern is a general-purpose writing tool and is not directed to children under 13 
 
 ## 8. Your Rights
 
-Because we do not hold your personal data, there is nothing for us to access, correct or delete on our side. For data held by Google (Play, Drive, backups, AdMob) or your Git host, please use those services' controls; you can change your ad consent in **Settings → Ad privacy choices** and manage your advertising ID in your device settings. If you have any question, contact us below.
+Apart from crash reports (section 2.12), which are not linked to your name, email or accounts and are deleted after 90 days, we do not hold your personal data, so there is nothing for us to access, correct or delete on our side. You can stop crash reports at any time in **Settings → About → Send crash reports**. For data held by Google (Play, Drive, backups, AdMob) or your Git host, please use those services' controls; you can change your ad consent in **Settings → Ad privacy choices** and manage your advertising ID in your device settings. If you have any question, contact us below.
 
 ---
 

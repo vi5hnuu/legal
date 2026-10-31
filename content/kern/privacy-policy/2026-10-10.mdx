@@ -1,0 +1,134 @@
+---
+title: Privacy Policy
+effectiveDate: 2026-10-10
+lastUpdated: 2026-10-10
+brand: Kern
+brandSlug: kern
+description: Privacy Policy for Kern (initial version, effective October 10, 2026).
+versions:
+  - date: "2026-10-10"
+    label: Initial version
+---
+
+# Privacy Policy for Kern
+
+_Last updated: October 10, 2026 · Effective: October 10, 2026_
+
+This Privacy Policy describes how Kern ("We", "Us", "Our"), made by Laxmi Solutions, handles your information when you use the Kern app. In short: **your documents stay on your phone**. Kern has no account system, no servers of its own that receive your documents, and no analytics. The free version shows ads from Google AdMob (section 2.11); **Kern Pro has no ads**.
+
+---
+
+## 1. What is Kern?
+
+Kern is a Typst editor for Android. You write documents, and Kern compiles them to PDF **on your device** with the built-in Typst compiler. Optional features let you keep projects in a folder you choose, sync them with Git or Google Drive, and, with Kern Pro, turn a photo or drawing of a formula into Typst (Snap math) and import LaTeX projects as Typst.
+
+---
+
+## 2. Information We Collect
+
+**We do not collect personal information.** Kern does not ask you to sign up, and it contains no analytics or crash-reporting SDKs. The free version includes Google's advertising SDK, which is described in section 2.11. The sections below explain what stays on your device and the network connections Kern makes on your behalf.
+
+### 2.1 Your Projects and Settings (On Your Device)
+
+Your projects (`.typ` files, bibliographies, images, fonts and other files), compiled PDFs and settings are stored **in Kern's private storage on your phone**. We never receive them. Uninstalling the app or clearing its data removes them, unless you keep them in a projects folder (section 2.2), they are kept in an Android backup (section 2.9), or you sync them (sections 2.5 and 2.6).
+
+### 2.2 Projects Folder and Opening Files (Optional)
+
+If you choose a **projects folder**, Kern saves a copy of your projects there as ordinary files and picks up changes made to them by other apps. Kern can access **only the folder you pick** in Android's folder picker, and you can stop using it at any time in **Settings → Projects folder**; the files already in the folder stay there. When you open a `.typ` file or a LaTeX project from another app or the file picker, Kern copies it into a new project. Kern opens nothing on your device that you did not choose.
+
+### 2.3 Compiling and Typst Packages
+
+Documents are compiled **entirely on your device**. When a document imports a package from Typst Universe (for example `#import "@preview/cetz:…"`), Kern downloads that package from the Typst package server (`packages.typst.org`, run by the Typst project) and keeps it on your device so later compiles work offline. To suggest packages on the Insert screen, Kern also downloads the public package list from the same server about once a day. These requests contain only the names and versions of the packages; **your document's content is never sent**. Like any web server, the package server can see your IP address and the time of the request.
+
+You can clear downloaded packages in **Settings → Downloads**.
+
+### 2.4 Downloads Through Google Play
+
+To keep the app small, the Snap math feature is delivered by **Google Play** as an optional download, and the app may check Google Play for updates. These downloads are handled by Google Play under [Google's Privacy Policy](https://policies.google.com/privacy).
+
+### 2.5 Git (Optional)
+
+If you clone a repository or connect a project to Git, Kern talks **directly to the Git host you choose** (for example GitHub or GitLab) over HTTPS. If you enter a username and access token, they are stored **only on your device**, encrypted with a key held in the Android Keystore, and are sent only to that Git host. Commits you push include the author name you set and contain your project files, as with any Git client. You can remove saved credentials in **Settings → Git**.
+
+### 2.6 Google Drive (Optional)
+
+If you turn on Google Drive sync for a project, Kern asks for the **`drive.file`** permission, which lets the app see and manage **only the files and folders it creates** in your Drive, not your other Drive files. Project files are copied **directly between your device and Google Drive**; they never pass through our servers. Kern stores the email address of the connected Google account on your device so it can show which account is connected.
+
+**Kern's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.** We do not use Google Drive data for advertising, do not sell it, and do not use it to train AI models.
+
+You can turn sync off per project in **Share & sync**, and revoke access at [myaccount.google.com/permissions](https://myaccount.google.com/permissions).
+
+### 2.7 Snap Math, LaTeX Import and the Document Scanner (Kern Pro)
+
+Formula recognition runs **on your device** with a bundled machine-learning model, and the result is converted to Typst on your device; images are not uploaded. LaTeX projects you import are also converted to Typst on your device. The camera scanner is **Google's ML Kit document scanner**, provided by Google Play services, which processes the scan on your device and hands Kern only the resulting image. Kern does not request the camera permission itself.
+
+### 2.8 Purchases
+
+Kern Pro is a one-time purchase through **Google Play Billing**. Google handles payment; we never receive your card or payment details. The app asks Google Play whether Kern Pro is owned by your Google account and remembers the answer on your device so Pro features work offline.
+
+### 2.9 Android Backup
+
+If Android backup is enabled on your device, Android may back up your projects and settings to your Google account, under Google's terms. Downloaded Typst packages, the Snap model, and your Git and Drive credentials are excluded from backups.
+
+### 2.10 Ratings
+
+After you have used Kern for a while, the app may ask Google Play to show its in-app rating prompt. Your rating and review go to Google Play; we do not receive them through the app.
+
+### 2.11 Advertising (Free Version Only)
+
+The free version of Kern shows ads provided by **Google AdMob**: a banner on the project and template lists, and occasional full-screen ads at natural breaks (for example after closing a document or when you return to the app), never while you are writing. **Kern Pro shows no ads, and the advertising SDK does not run for Pro users.**
+
+To show, measure and limit ads, Google AdMob collects information from your device, such as your **advertising ID**, IP address, device and app information, and how you interact with ads. This information goes **directly to Google**; we do not receive it, and your documents are never shared with advertisers. Google's use of this data is described in [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites) and [Google's Privacy Policy](https://policies.google.com/privacy).
+
+Ads are chosen using general topics related to Kern (such as mathematics and academic writing). Where the law requires it (for example in the European Economic Area and the United Kingdom), Kern asks for your **consent** before any ad is requested, using Google's consent tool, and you can change your choice at any time in **Settings → Ad privacy choices**. You can also reset or delete your advertising ID, or opt out of personalised ads, in your device's **Settings → Google → Ads** (or **Settings → Privacy → Ads**). Kern limits ads to content suitable for general audiences.
+
+---
+
+## 3. Permissions
+
+- **Internet and network state** — to download Typst packages and the package list, Git and Drive sync, Google Play downloads and purchases, and ads in the free version.
+- **Advertising ID** (`AD_ID`) — declared by Google's advertising SDK so ads can be measured and limited in the free version (section 2.11).
+
+Kern opens files and folders only through Android's file and folder pickers, or when you open a file with Kern from another app, so it can read only what you choose.
+
+---
+
+## 4. How We Share Information
+
+We do not sell, rent or share personal information, because we do not collect it. The only services Kern communicates with are the ones you use: Google Play (downloads, updates, purchases, ratings), Google Drive (if you enable it), your Git host (if you use Git), the Typst package server (for packages and the package list) and, in the free version, Google AdMob (section 2.11), which collects the advertising data described there directly from your device.
+
+---
+
+## 5. Data Retention and Deletion
+
+Everything Kern stores is on your device or in places you choose. You can delete a project in the app, clear downloaded packages in Settings, remove Git credentials in Settings, or clear the app's data or uninstall it to remove everything in the app. Files in your projects folder, and data you pushed to a Git host or synced to Google Drive, stay there until you delete them.
+
+---
+
+## 6. Security
+
+Network connections use HTTPS. Git tokens are encrypted with a key held in the Android Keystore. Projects are kept in the app's private storage, which other apps cannot read; a projects folder you choose is readable by apps you allow to access it. No method of storage or transmission is 100% secure, but we design Kern to keep your data on your device.
+
+---
+
+## 7. Children
+
+Kern is a general-purpose writing tool and is not directed to children under 13 (or the minimum age in your country). It does not knowingly collect personal data from anyone. Ads in the free version are limited to content suitable for general audiences.
+
+---
+
+## 8. Your Rights
+
+Because we do not hold your personal data, there is nothing for us to access, correct or delete on our side. For data held by Google (Play, Drive, backups, AdMob) or your Git host, please use those services' controls; you can change your ad consent in **Settings → Ad privacy choices** and manage your advertising ID in your device settings. If you have any question, contact us below.
+
+---
+
+## 9. Changes to This Policy
+
+We may update this Policy from time to time. We will revise the "Last updated" date above and, for material changes, provide notice in the app. Previous versions remain available on this page.
+
+---
+
+## 10. Contact
+
+Laxmi Solutions — [laxmi.solutions.2025@gmail.com](mailto:laxmi.solutions.2025@gmail.com)
