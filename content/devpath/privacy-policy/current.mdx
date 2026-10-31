@@ -4,7 +4,7 @@ effectiveDate: 2026-10-31
 lastUpdated: 2026-10-31
 brand: DevPath
 brandSlug: devpath
-description: Privacy Policy for DevPath — a learning app that works without an account, keeps your progress on your device, and shows no ads.
+description: Privacy Policy for DevPath — a learning app that works without an account, keeps your progress on your device, and is supported by ads you can remove with DevPath Pro.
 versions: []
 ---
 
@@ -20,9 +20,10 @@ This Privacy Policy explains how **Laxmi Solutions** ("We", "Us", "Our") handles
 
 - You **don't create an account**. We don't ask for your name, email, phone number or contacts.
 - Your **progress, answers, XP, streak and settings stay on your device**, in the app's private storage. We don't receive them.
-- DevPath **shows no ads**, has **no in-app purchases**, and contains **no analytics or tracking SDK**.
-- The app **downloads course content** from our content server. Those requests carry only what any download does (such as your IP address); they don't include anything about you or your progress.
-- If you turn on **Android backup**, Google may back up your progress to your Google account, under Google's privacy policy.
+- DevPath is free and **shows ads** through **Google AdMob**, which uses your device's **advertising ID**. In regions that require it (such as the EEA and UK), we ask for your **consent** first.
+- **DevPath Pro**, a one-time purchase through **Google Play**, removes all ads. You can also watch one ad to use DevPath **without ads for an hour**.
+- We add **no analytics or tracking SDK of our own**.
+- The app **downloads course content** from our content server. Those requests carry only what any download does (such as your IP address).
 
 ---
 
@@ -36,29 +37,44 @@ Lessons you complete, quiz and test answers and scores, flashcard review history
 ### 2.2 Course Content Downloads
 Course content (lessons, questions and course listings) is downloaded from our content server at `code-sprout-content.laxmi.solutions`, which is hosted on **Amazon Web Services (Amazon S3 and Amazon CloudFront)**. As with any download, the server receives technical information about each request, such as your **IP address, the time, the file requested and your device's user-agent**. Our hosting provider may keep this in standard access logs for security and reliability. We do not use it to identify you, and it is not linked to your progress, which never leaves your device.
 
-### 2.3 Device Permissions
+### 2.3 Advertising
+DevPath shows a banner on its main screens, an occasional full-screen ad between lessons, and, only if you choose to watch one, a rewarded ad that removes ads for an hour. Ads are served by **Google AdMob**. To serve and measure ads and to prevent fraud, Google's Mobile Ads SDK may collect your device's resettable **advertising ID**, your **IP address** (and an approximate location derived from it), **device and app information**, and how you **interact with ads**, together with **diagnostic** data such as crash logs. This data goes to Google, not to us, and is handled under [Google's Privacy Policy](https://policies.google.com/privacy) and [how Google uses information from apps that use its services](https://policies.google.com/technologies/partner-sites).
+
+Where the law requires it (for example in the EEA, the UK and Switzerland), DevPath asks for your consent through **Google's User Messaging Platform** before personalised ads are shown. You can change your choice at any time under **Profile → Remove ads → Ad privacy choices**.
+
+To grant the ad-free hour fairly, the app checks on your device that the rewarded ad was watched to the end, while your device was online. These checks happen on the device and nothing about them is sent to us.
+
+The app keeps a few counters on your device so that ads are not shown too often (for example, how many times you have opened the app and when the last full-screen ad appeared). These stay on your device.
+
+### 2.4 Purchases (DevPath Pro)
+**DevPath Pro** is a one-time purchase processed by **Google Play Billing**. Google handles your payment; **we never see your card or payment details**. The app receives from Google Play only whether Pro is owned by the Google account on the device, and it checks Google's signature on that purchase so it cannot be faked. It stores a note that Pro is owned on your device so it keeps working offline, and asks Google Play again each time you open the app (which also restores Pro on a new phone).
+
+### 2.5 Device Permissions
 
 | Permission | Why it's used |
 | --- | --- |
-| Internet and network state | To download course content and to wait for a connection before downloading. |
+| Internet and network state | To download course content, load ads, and check that a rewarded ad is watched online. |
+| Advertising ID | Added by Google's Mobile Ads SDK to serve and measure ads. You can reset or delete it in your device settings. |
 | Notifications (Android 13+) | Only for the optional daily study reminder. DevPath asks for it when you switch the reminder on, and you can turn the reminder off at any time. |
 
 DevPath does **not** request access to your location, contacts, camera, microphone, photos or files.
 
-### 2.4 Backup
+### 2.6 Backup
 DevPath supports **Android's backup and device-to-device transfer**. If backup is turned on for your device, Android may copy your **progress database and settings** to your Google account so they can be restored on a new phone. Downloaded course content is excluded, because it can simply be downloaded again. Backup is provided and controlled by Google; you can turn it off in your device's settings.
 
-### 2.5 Contacting Us
+### 2.7 Contacting Us
 If you use **Send feedback**, DevPath opens your own email app with our address filled in. We receive only what you choose to send, such as your email address and message, and we use it only to reply to you.
 
-### 2.6 Links to Other Websites
-Some lessons link to further reading on other websites. These open in your browser, and those websites have their own privacy policies.
+### 2.8 Links to Other Websites
+Some lessons link to further reading on other websites, and ads may link to advertisers' websites or apps. These open outside DevPath, and those websites have their own privacy policies.
 
 ---
 
 ## 3. How We Use Information
 
-Because your progress stays on your device, we use information only to: deliver course content to the app; keep the content server secure and working; and reply to messages you send us. We do **not** sell your personal information, and we do not use it for advertising.
+Because your progress stays on your device, we use information only to: deliver course content to the app; show ads, and, where you consent, personalised ads; provide DevPath Pro and the ad-free hour; keep the content server and the app secure and working; and reply to messages you send us. We do **not** sell your personal information.
+
+Where the GDPR or a similar law applies, the legal bases are: **consent** for personalised advertising (withdraw it under Ad privacy choices); **performance of a contract** for providing DevPath Pro; and our **legitimate interests** in delivering content, showing non-personalised ads that keep DevPath free, and preventing fraud.
 
 ---
 
@@ -66,47 +82,62 @@ Because your progress stays on your device, we use information only to: deliver 
 
 DevPath relies on the following third parties, whose handling of data is governed by their own privacy policies:
 
+- **Google AdMob** (ads) — [Google's Privacy Policy](https://policies.google.com/privacy) and [AdMob's data disclosures](https://support.google.com/admob/answer/6128543).
+- **Google User Messaging Platform** (ad consent) — [Google's Privacy Policy](https://policies.google.com/privacy).
+- **Google Play Billing** (DevPath Pro) and **Google Play** (app distribution) — [Google's Privacy Policy](https://policies.google.com/privacy).
+- **Google** (Android backup, if you turn it on) — [Google's Privacy Policy](https://policies.google.com/privacy).
 - **Amazon Web Services** (content hosting and delivery: Amazon S3 and CloudFront) — [AWS Privacy Notice](https://aws.amazon.com/privacy/).
-- **Google** (Android backup, if you turn it on, and Google Play, which distributes the app) — [Google's Privacy Policy](https://policies.google.com/privacy).
 
 ---
 
-## 5. Data Retention
+## 5. Your Advertising Choices
 
-Your progress and settings remain on your device until **you reset them in the app** (Profile → Preferences → Reset progress), **clear the app's storage, or uninstall** the app. We hold no copy of them, so there is nothing for us to keep or delete on our servers. Content-server access logs are kept by our hosting provider for a limited period for security and then deleted. Backups held by Google follow Google's retention policies.
+- **Remove ads entirely:** buy **DevPath Pro** under Profile → Remove ads.
+- **An hour without ads:** watch one rewarded ad under Profile → Remove ads.
+- **Change ad consent** (where offered): Profile → Remove ads → Ad privacy choices.
+- **Reset or delete your advertising ID:** on Android, _Settings → Privacy → Ads_ (or _Settings → Google → Ads_ on some devices).
+- **Interest-based ads:** see [Google's Ads Settings](https://adssettings.google.com).
 
 ---
 
-## 6. Security
+## 6. Data Retention
+
+Your progress and settings remain on your device until **you reset them in the app** (Profile → Preferences → Reset progress), **clear the app's storage, or uninstall** the app. We hold no copy of them, so there is nothing for us to keep or delete on our servers. Content-server access logs are kept by our hosting provider for a limited period for security and then deleted. Google keeps ad, purchase and backup data under its own retention policies.
+
+---
+
+## 7. Security
 
 Your progress is stored in the app's private storage on your device, protected by your device's own security. Course content is downloaded **only over HTTPS**, and the app checks each downloaded file against its expected fingerprint before using it. No method of storage or transmission is 100% secure, but because your data stays on your device, its security largely depends on the security of your device.
 
 ---
 
-## 7. Children's Privacy
+## 8. Children's Privacy
 
 DevPath is a general-audience learning app and is **not directed to children under 13** (or the equivalent minimum age in your country). It doesn't ask for personal information from anyone, and we do not knowingly collect personal information from children. If you believe a child has sent us personal information through feedback, contact us and we will delete it.
 
 ---
 
-## 8. Your Rights
+## 9. Your Rights
 
-Depending on where you live (for example under India's Digital Personal Data Protection Act, 2023, the GDPR or the CCPA/CPRA), you may have rights to access, correct or delete your personal information, and to object to or restrict certain processing. Because DevPath keeps your progress **on your device and does not send it to us**, you can exercise most of these rights directly: view your progress in the app, reset it, or clear the app's storage to remove everything. For a feedback email you sent us, or any other request, contact us (Section 11).
+Depending on where you live (for example under India's Digital Personal Data Protection Act, 2023, the GDPR or the CCPA/CPRA), you may have rights to access, correct or delete your personal information, to object to or restrict certain processing, and to withdraw consent. Because DevPath keeps your progress **on your device and does not send it to us**, you can exercise most of these rights directly: view your progress in the app, reset it, or clear the app's storage to remove everything. For advertising data held by Google, use the choices in Section 5 or contact Google. For a feedback email you sent us, or any other request, contact us (Section 12).
 
----
-
-## 9. International Users
-
-DevPath is operated from **India**. Course content is delivered through Amazon CloudFront, which serves it from locations around the world, so request information may be processed in countries other than your own, under AWS's safeguards.
+We do not sell your personal information. Under some US state laws, the use of the advertising ID for personalised ads may count as "sharing"; you can opt out by limiting or deleting your advertising ID (Section 5) or by buying DevPath Pro.
 
 ---
 
-## 10. Changes to This Policy
+## 10. International Users
+
+DevPath is operated from **India**. Course content is delivered through Amazon CloudFront, which serves it from locations around the world, and Google processes ad and purchase data in many countries. Information may therefore be processed in countries other than your own, under those providers' safeguards.
+
+---
+
+## 11. Changes to This Policy
 
 We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date above and, for material changes, provide a more prominent notice where appropriate. Continued use of DevPath after an update constitutes acceptance of the revised policy.
 
 ---
 
-## 11. Contact Us
+## 12. Contact Us
 
 Questions about this policy or your privacy? Contact **Laxmi Solutions** at **laxmi.solutions.2025@gmail.com**.
