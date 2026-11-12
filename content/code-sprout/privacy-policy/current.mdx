@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 effectiveDate: 2026-10-23
-lastUpdated: 2026-10-23
+lastUpdated: 2026-11-12
 brand: Code Sprout
 brandSlug: code-sprout
 description: Privacy Policy for Code Sprout — what we collect, how long we keep it, how you can access, export, or delete it, and your rights under India's DPDPA, 2023.
@@ -10,7 +10,7 @@ versions: []
 
 # Privacy Policy for Code Sprout
 
-_Last updated: October 23, 2026 · Effective: October 23, 2026_
+_Last updated: November 12, 2026 · Effective: October 23, 2026_
 
 This Privacy Policy describes how **Code Sprout** ("We", "Us", "Our"), operated by **Laxmi Solutions**, collects, uses, retains, and protects your personal data when you use the Code Sprout website at [https://code-sprout.laxmi.solutions](https://code-sprout.laxmi.solutions) and the APIs that back it (together, the "Service"). By using the Service you agree to the practices described here.
 
@@ -62,6 +62,8 @@ Our servers log a limited amount of technical data per request:
 
 We do **not** log request bodies, your password, your session token, or the contents of your code submissions in these access logs.
 
+When you sign in, create an account, continue as a guest, ask for a password-reset or verification e-mail, or change your password, a **human check** by Cloudflare Turnstile runs on that form (see Section 6). It is usually invisible. Cloudflare evaluates signals from your browser and device, such as your IP address, browser characteristics and how the page is interacted with, and gives us only a pass or fail result. We do not receive or store those signals. Our identity service logs failed checks with your IP address and the reason, to detect abuse.
+
 ---
 
 ## 3. Why We Collect It (Purposes under DPDPA, 2023)
@@ -70,7 +72,7 @@ We collect the data above for these specific, limited purposes:
 
 | Purpose | What we use |
 |---|---|
-| Create and secure your account | email, password hash, Google profile (if OAuth), IP, session cookies |
+| Create and secure your account | email, password hash, Google profile (if OAuth), IP, session cookies, the pass/fail result of the human check on account forms |
 | Judge the code you submit | submission source, selected language, problem id, verdict and timing |
 | Keep your learning history and progress | submissions, solved status, streaks, review schedule |
 | Let you contribute content | articles, problems, test sets, videos you author |
@@ -122,6 +124,7 @@ To run the Service we route some data through the following service providers:
 | **YouTube (embedded player)** | We embed videos using `youtube-nocookie.com`. YouTube may receive your IP and basic device metadata only after you press play. | United States / Google infrastructure | Video playback |
 | **Laxmi Solutions — ls-judge** (`runtimes.laxmi.solutions`) | Your code when you run or submit, and the verdict it returns | **ap-south-1 (Mumbai, India)** | Code execution sandbox |
 | **Laxmi Solutions — identity service** (`ls-judge-auth.laxmi.solutions`) | Your email, password hash, Google profile, session metadata | **ap-south-1 (Mumbai, India)** | Account & authentication |
+| **Cloudflare, Inc. — Turnstile** | Only on the sign-in, sign-up, guest, password-reset, verification and password-change forms: your IP address and browser and device signals used to tell people from automated bots | United States / Cloudflare's global network | Preventing fake accounts, credential stuffing and e-mail abuse |
 | **Google LLC — AdSense** | Your IP address, user-agent, interactions with the ads on this site, and (if you have accepted Google's cookies elsewhere) your Google advertising profile | United States / Google infrastructure | Serving contextual and personalised advertisements that fund the Service |
 
 Where a provider is outside India, we rely on the Central Government's permissions under DPDPA Section 16 and on each provider's standard contractual protections for cross-border transfer. We do not transfer personal data to any country or territory notified by the Central Government as restricted.
@@ -215,7 +218,7 @@ We use a small number of **first-party** cookies and `localStorage` entries, all
 - **Theme preference** — remembers whether you chose light or dark mode.
 - **Draft and editor state** — your in-progress code and article drafts, stored in `localStorage` so you don't lose work if your tab reloads.
 
-In addition, Google AdSense (Section 6a) sets its own **third-party cookies** under `*.google.com` and `*.doubleclick.net` to cap ad frequency and (unless you opt out) personalise ads. Google Identity Services sets its own cookies only while the sign-in widget is open.
+In addition, Google AdSense (Section 6a) sets its own **third-party cookies** under `*.google.com` and `*.doubleclick.net` to cap ad frequency and (unless you opt out) personalise ads. Google Identity Services sets its own cookies only while the sign-in widget is open. Cloudflare Turnstile runs in its own frame from `challenges.cloudflare.com`, only on the account forms listed in Section 2.3. We do not use Cloudflare's clearance cookie.
 
 ---
 
