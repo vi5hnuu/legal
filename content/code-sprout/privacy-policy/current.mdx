@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 effectiveDate: 2026-10-23
-lastUpdated: 2026-10-23
+lastUpdated: 2026-11-12
 brand: Code Sprout
 brandSlug: code-sprout
 description: Privacy Policy for Code Sprout — what we collect, how long we keep it, how you can access, export, or delete it, and your rights under India's DPDPA, 2023.
@@ -10,7 +10,7 @@ versions: []
 
 # Privacy Policy for Code Sprout
 
-_Last updated: October 23, 2026 · Effective: October 23, 2026_
+_Last updated: November 12, 2026 · Effective: October 23, 2026_
 
 This Privacy Policy describes how **Code Sprout** ("We", "Us", "Our"), operated by **Laxmi Solutions**, collects, uses, retains, and protects your personal data when you use the Code Sprout website at [https://code-sprout.laxmi.solutions](https://code-sprout.laxmi.solutions) and the APIs that back it (together, the "Service"). By using the Service you agree to the practices described here.
 
@@ -58,6 +58,7 @@ Our servers log a limited amount of technical data per request:
 
 - HTTP method, path, response status, latency, and a request id (also returned as `X-Request-ID`)
 - Your IP address (used for rate limiting and the anonymous-tier per-IP quota)
+- A random anonymous browser id from the `cs_cid` cookie (Section 10), used the same way so readers who share one network address are not limited or counted as one person
 - Structured application logs, kept on rolling daily files and rotated out after approximately 30 days
 
 We do **not** log request bodies, your password, your session token, or the contents of your code submissions in these access logs.
@@ -213,6 +214,7 @@ We use a small number of **first-party** cookies and `localStorage` entries, all
 
 - **Session cookie** — a short-lived JWT that keeps you signed in.
 - **Theme preference** — remembers whether you chose light or dark mode.
+- **Anonymous browser id (`cs_cid`)** — a random value set on your first visit and kept for up to 400 days. It is not linked to your account, contains no personal details and cannot be read by page scripts (HttpOnly). We use it only to apply rate limits fairly and to count a page view once per reader when many people share one network address, as on mobile networks. Clearing your cookies removes it; the site works without it.
 - **Draft and editor state** — your in-progress code and article drafts, stored in `localStorage` so you don't lose work if your tab reloads.
 
 In addition, Google AdSense (Section 6a) sets its own **third-party cookies** under `*.google.com` and `*.doubleclick.net` to cap ad frequency and (unless you opt out) personalise ads. Google Identity Services sets its own cookies only while the sign-in widget is open.
