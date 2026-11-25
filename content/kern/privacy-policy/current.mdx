@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
-effectiveDate: 2026-10-31
-lastUpdated: 2026-10-31
+effectiveDate: 2026-11-26
+lastUpdated: 2026-11-26
 brand: Kern
 brandSlug: kern
 description: Privacy Policy for Kern — a Typst editor that compiles on your phone. No account and no analytics, crash reports you can turn off; the free version shows ads, Kern Pro has none.
@@ -10,19 +10,21 @@ versions:
     label: Initial version
   - date: "2026-10-31"
     label: Crash reports (Firebase Crashlytics), which you can turn off in Settings
+  - date: "2026-11-26"
+    label: Optional AI assistant in Kern Pro, used with your own API key
 ---
 
 # Privacy Policy for Kern
 
-_Last updated: October 31, 2026 · Effective: October 31, 2026_
+_Last updated: November 26, 2026 · Effective: November 26, 2026_
 
-This Privacy Policy describes how Kern ("We", "Us", "Our"), made by Laxmi Solutions, handles your information when you use the Kern app. In short: **your documents stay on your phone**. Kern has no account system, no servers of its own that receive your documents, and no analytics. Crash reports, which you can turn off, help us fix bugs (section 2.12). The free version shows ads from Google AdMob (section 2.11); **Kern Pro has no ads**.
+This Privacy Policy describes how Kern ("We", "Us", "Our"), made by Laxmi Solutions, handles your information when you use the Kern app. In short: **your documents stay on your phone**. Kern has no account system, no servers of its own that receive your documents, and no analytics. Crash reports, which you can turn off, help us fix bugs (section 2.12). The optional AI assistant in Kern Pro sends the text you ask it about to the AI provider you connect, and only when you ask (section 2.13). The free version shows ads from Google AdMob (section 2.11); **Kern Pro has no ads**.
 
 ---
 
 ## 1. What is Kern?
 
-Kern is a Typst editor for Android. You write documents, and Kern compiles them to PDF **on your device** with the built-in Typst compiler. Optional features let you keep projects in a folder you choose, sync them with Git or Google Drive, and, with Kern Pro, turn a photo or drawing of a formula into Typst (Snap math) and import LaTeX projects as Typst.
+Kern is a Typst editor for Android. You write documents, and Kern compiles them to PDF **on your device** with the built-in Typst compiler. Optional features let you keep projects in a folder you choose, sync them with Git or Google Drive, and, with Kern Pro, turn a photo or drawing of a formula into Typst (Snap math), import LaTeX projects as Typst, and use an optional AI assistant that you connect with your own API key.
 
 ---
 
@@ -46,7 +48,7 @@ You can clear downloaded packages in **Settings → Downloads**.
 
 ### 2.4 Downloads Through Google Play
 
-To keep the app small, the Snap math feature is delivered by **Google Play** as an optional download, and the app may check Google Play for updates. These downloads are handled by Google Play under [Google's Privacy Policy](https://policies.google.com/privacy).
+To keep the app small, the Snap math feature and the software the AI assistant needs to reach AI providers are delivered by **Google Play** as optional downloads, and the app may check Google Play for updates. These downloads are handled by Google Play under [Google's Privacy Policy](https://policies.google.com/privacy).
 
 ### 2.5 Git (Optional)
 
@@ -70,7 +72,7 @@ Kern Pro is a one-time purchase through **Google Play Billing**. Google handles 
 
 ### 2.9 Android Backup
 
-If Android backup is enabled on your device, Android may back up your projects and settings to your Google account, under Google's terms. Downloaded Typst packages, the Snap model, and your Git and Drive credentials are excluded from backups.
+If Android backup is enabled on your device, Android may back up your projects and settings to your Google account, under Google's terms. Downloaded Typst packages, the Snap model, your Git and Drive credentials, and your AI provider API keys and AI settings are excluded from backups.
 
 ### 2.10 Ratings
 
@@ -90,11 +92,35 @@ To find and fix bugs, Kern uses **Firebase Crashlytics**, a service provided by 
 
 Google processes crash reports on our behalf under the [Firebase privacy and security terms](https://firebase.google.com/support/privacy), and they are deleted after 90 days. You can turn crash reports off at any time in **Settings → About → Send crash reports**; nothing more is sent until you turn them back on.
 
+### 2.13 AI Assistant (Kern Pro, Optional)
+
+Kern Pro includes an optional AI assistant that you can ask to write, change, fix or explain things in the file you are editing, including the errors from a failed compile. It is **off until you set it up**: you choose an AI provider (Anthropic's Claude, OpenAI's ChatGPT, Google's Gemini, or a compatible server whose address you enter) and enter **your own API key** for it. We do not provide AI accounts or keys, and we operate no server between you and the provider.
+
+**What is sent, and when.** Nothing is sent until you ask the assistant for something. Each request goes **directly from your device to the provider you chose**, over HTTPS, and contains:
+
+- your API key, so the provider can identify your account;
+- what you asked, and the earlier questions and answers of the same conversation;
+- the file you have open in the editor, with its name, the position of your cursor and the text you have selected. A very large file is sent in part: its opening lines, up to the first heading, and the lines around your cursor and around compile errors;
+- the error messages of the last compile, with the compiler's hints and the names of the files they are in;
+- the keys of citations that have no bibliography entry yet, so that entries can be drafted for them when you ask;
+- an image, only when you attach one to your question. You choose it with the Android photo picker; Kern cannot see your other photos, and sends a reduced-size copy;
+- the name of the AI model you chose.
+
+The other files of your project are not sent. When you enter or change a key, Kern asks the provider for its list of models, which sends only the key. When you choose a model, Kern sends it a one-word test message to check that it works with your key. Like any web server, the provider can see your IP address and the time of each request.
+
+**What the provider does with it.** The provider processes your request under **its own terms and privacy policy and your account with it**, including how long it keeps requests and whether it uses them to improve its services. We are not a party to that and cannot see, change or delete it. Please read your provider's policy: [Anthropic](https://www.anthropic.com/legal/privacy), [OpenAI](https://openai.com/policies/privacy-policy/), [Google](https://policies.google.com/privacy). For a custom server, the operator of that server receives the request.
+
+**What we receive.** Nothing. We do not receive your API key, your requests or the answers, and Kern keeps no history of them: an answer is shown on screen and is gone when you close it, unless you insert it into your document.
+
+**Your API key** is stored **only on your device**, encrypted with a key held in the Android Keystore, is left out of Android backups, and is sent only to the provider it belongs to. You can remove it at any time in **Settings → AI assistant**. Usage is billed by the provider to your account with it.
+
+**Reporting an answer.** Each answer has a **Report this response** option, which opens an email to us in your email app. It contains the provider and model names; anything else, including the answer itself, is included only if you add it.
+
 ---
 
 ## 3. Permissions
 
-- **Internet and network state** — to download Typst packages and the package list, Git and Drive sync, Google Play downloads and purchases, crash reports, and ads in the free version.
+- **Internet and network state** — to download Typst packages and the package list, Git and Drive sync, Google Play downloads and purchases, crash reports, ads in the free version, and requests you make to your AI provider (section 2.13).
 - **Advertising ID** (`AD_ID`) — declared by Google's advertising SDK so ads can be measured and limited in the free version (section 2.11).
 
 Kern opens files and folders only through Android's file and folder pickers, or when you open a file with Kern from another app, so it can read only what you choose.
@@ -103,19 +129,19 @@ Kern opens files and folders only through Android's file and folder pickers, or 
 
 ## 4. How We Share Information
 
-We do not sell or rent personal information. The only services Kern communicates with are the ones you use: Google Play (downloads, updates, purchases, ratings), Google Drive (if you enable it), your Git host (if you use Git), the Typst package server (for packages and the package list), Firebase Crashlytics (crash reports, unless you turn them off; section 2.12) and, in the free version, Google AdMob (section 2.11), which collects the advertising data described there directly from your device.
+We do not sell or rent personal information. The only services Kern communicates with are the ones you use: Google Play (downloads, updates, purchases, ratings), Google Drive (if you enable it), your Git host (if you use Git), the Typst package server (for packages and the package list), Firebase Crashlytics (crash reports, unless you turn them off; section 2.12) and, in the free version, Google AdMob (section 2.11), which collects the advertising data described there directly from your device. If you set up the AI assistant, the text you ask it about goes to the AI provider you chose, at your request (section 2.13).
 
 ---
 
 ## 5. Data Retention and Deletion
 
-Everything Kern stores is on your device or in places you choose. You can delete a project in the app, clear downloaded packages in Settings, remove Git credentials in Settings, or clear the app's data or uninstall it to remove everything in the app. Files in your projects folder, and data you pushed to a Git host or synced to Google Drive, stay there until you delete them. Crash reports are deleted by Firebase Crashlytics after 90 days.
+Everything Kern stores is on your device or in places you choose. You can delete a project in the app, clear downloaded packages in Settings, remove Git credentials and AI provider API keys in Settings, or clear the app's data or uninstall it to remove everything in the app. Files in your projects folder, and data you pushed to a Git host or synced to Google Drive, stay there until you delete them. Crash reports are deleted by Firebase Crashlytics after 90 days. Text you sent to an AI provider is kept or deleted by that provider under its own policy.
 
 ---
 
 ## 6. Security
 
-Network connections use HTTPS. Git tokens are encrypted with a key held in the Android Keystore. Projects are kept in the app's private storage, which other apps cannot read; a projects folder you choose is readable by apps you allow to access it. No method of storage or transmission is 100% secure, but we design Kern to keep your data on your device.
+Network connections use HTTPS. Git tokens and AI provider API keys are encrypted with keys held in the Android Keystore. Projects are kept in the app's private storage, which other apps cannot read; a projects folder you choose is readable by apps you allow to access it. No method of storage or transmission is 100% secure, but we design Kern to keep your data on your device.
 
 ---
 
@@ -127,7 +153,7 @@ Kern is a general-purpose writing tool and is not directed to children under 13 
 
 ## 8. Your Rights
 
-Apart from crash reports (section 2.12), which are not linked to your name, email or accounts and are deleted after 90 days, we do not hold your personal data, so there is nothing for us to access, correct or delete on our side. You can stop crash reports at any time in **Settings → About → Send crash reports**. For data held by Google (Play, Drive, backups, AdMob) or your Git host, please use those services' controls; you can change your ad consent in **Settings → Ad privacy choices** and manage your advertising ID in your device settings. If you have any question, contact us below.
+Apart from crash reports (section 2.12), which are not linked to your name, email or accounts and are deleted after 90 days, we do not hold your personal data, so there is nothing for us to access, correct or delete on our side. You can stop crash reports at any time in **Settings → About → Send crash reports**. For data held by Google (Play, Drive, backups, AdMob), your Git host or your AI provider, please use those services' controls; you can change your ad consent in **Settings → Ad privacy choices** and manage your advertising ID in your device settings. If you have any question, contact us below.
 
 ---
 
