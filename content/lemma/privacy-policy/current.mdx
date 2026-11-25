@@ -94,15 +94,17 @@ Google processes crash reports on our behalf under the [Firebase privacy and sec
 
 ### 2.13 AI Assistant (Lemma Pro, Optional)
 
-Lemma Pro includes an optional AI assistant that can write LaTeX from a description, rewrite text you select, and explain a compile error. It is **off until you set it up**: you choose an AI provider (Anthropic's Claude, OpenAI's ChatGPT, Google's Gemini, or a compatible server whose address you enter) and enter **your own API key** for it. We do not provide AI accounts or keys, and we operate no server between you and the provider.
+Lemma Pro includes an optional AI assistant that you can ask to write, change, fix or explain things in the file you are editing, including the errors from a failed compile. It is **off until you set it up**: you choose an AI provider (Anthropic's Claude, OpenAI's ChatGPT, Google's Gemini, or a compatible server whose address you enter) and enter **your own API key** for it. We do not provide AI accounts or keys, and we operate no server between you and the provider.
 
 **What is sent, and when.** Nothing is sent until you ask the assistant for something. Each request goes **directly from your device to the provider you chose**, over HTTPS, and contains:
 
 - your API key, so the provider can identify your account;
-- the instruction for that request and the text it is about: the description you typed, the text you selected, or, for a compile error, the error message, up to about 30 lines of your document around it and the end of the compile log;
+- what you asked, and the earlier questions and answers of the same conversation;
+- the file you have open in the editor, with its name, the position of your cursor and the text you have selected. A very large file is sent in part: its preamble and the lines around your cursor and around compile errors;
+- the error messages of the last compile, with the names of the files they are in, and, when you ask about those errors, the end of the compile log;
 - the name of the AI model you chose.
 
-The rest of your document and your other files are not sent. When you enter or change a key, Lemma asks the provider for its list of models, which sends only the key. Like any web server, the provider can see your IP address and the time of each request.
+The other files of your project are not sent. When you enter or change a key, Lemma asks the provider for its list of models, which sends only the key. When you choose a model, Lemma sends it a one-word test message to check that it works with your key. Like any web server, the provider can see your IP address and the time of each request.
 
 **What the provider does with it.** The provider processes your request under **its own terms and privacy policy and your account with it**, including how long it keeps requests and whether it uses them to improve its services. We are not a party to that and cannot see, change or delete it. Please read your provider's policy: [Anthropic](https://www.anthropic.com/legal/privacy), [OpenAI](https://openai.com/policies/privacy-policy/), [Google](https://policies.google.com/privacy). For a custom server, the operator of that server receives the request.
 
