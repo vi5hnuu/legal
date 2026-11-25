@@ -102,6 +102,8 @@ Lemma Pro includes an optional AI assistant that you can ask to write, change, f
 - what you asked, and the earlier questions and answers of the same conversation;
 - the file you have open in the editor, with its name, the position of your cursor and the text you have selected. A very large file is sent in part: its preamble and the lines around your cursor and around compile errors;
 - the error messages of the last compile, with the names of the files they are in, and, when you ask about those errors, the end of the compile log;
+- the keys of citations that have no bibliography entry yet, so that entries can be drafted for them when you ask;
+- an image, only when you attach one to your question. You choose it with the Android photo picker; Lemma cannot see your other photos, and sends a reduced-size copy;
 - the name of the AI model you chose.
 
 The other files of your project are not sent. When you enter or change a key, Lemma asks the provider for its list of models, which sends only the key. When you choose a model, Lemma sends it a one-word test message to check that it works with your key. Like any web server, the provider can see your IP address and the time of each request.
